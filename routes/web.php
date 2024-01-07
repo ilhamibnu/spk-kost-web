@@ -27,53 +27,53 @@ use Illuminate\Support\Facades\Route;
 # Auth Controller
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');
 
 # Kost Controller
-Route::get('/kost', [KostController::class, 'index']);
-Route::post('/kost', [KostController::class, 'store']);
-Route::put('/kost/{id}', [KostController::class, 'update']);
-Route::delete('/kost/{id}', [KostController::class, 'destroy']);
+Route::get('/kost', [KostController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/kost', [KostController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/kost/{id}', [KostController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/kost/{id}', [KostController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
 
 # Alternatif Controller
-Route::get('/alternatif', [AlternatifController::class, 'index']);
+Route::get('/alternatif', [AlternatifController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
 
 # Kriteria Controller
-Route::get('/kriteria', [KriteriaController::class, 'index']);
-Route::put('/kriteria/{id}', [KriteriaController::class, 'update']);
+Route::get('/kriteria', [KriteriaController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/kriteria/{id}', [KriteriaController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
 
 # Lokasi Controller
-Route::get('/lokasi', [LokasiController::class, 'index']);
-Route::post('/lokasi', [LokasiController::class, 'store']);
-Route::put('/lokasi/{id}', [LokasiController::class, 'update']);
-Route::delete('/lokasi/{id}', [LokasiController::class, 'destroy']);
+Route::get('/lokasi', [LokasiController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/lokasi', [LokasiController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/lokasi/{id}', [LokasiController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/lokasi/{id}', [LokasiController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
 
 # Fasilitas Controller
-Route::get('/fasilitas', [FasilitasController::class, 'index']);
-Route::post('/fasilitas', [FasilitasController::class, 'store']);
-Route::put('/fasilitas/{id}', [FasilitasController::class, 'update']);
-Route::delete('/fasilitas/{id}', [FasilitasController::class, 'destroy']);
+Route::get('/fasilitas', [FasilitasController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/fasilitas', [FasilitasController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/fasilitas/{id}', [FasilitasController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/fasilitas/{id}', [FasilitasController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
 
 # Keamanan Controller
-Route::get('/keamanan', [KeamananController::class, 'index']);
-Route::post('/keamanan', [KeamananController::class, 'store']);
-Route::put('/keamanan/{id}', [KeamananController::class, 'update']);
-Route::delete('/keamanan/{id}', [KeamananController::class, 'destroy']);
+Route::get('/keamanan', [KeamananController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/keamanan', [KeamananController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/keamanan/{id}', [KeamananController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/keamanan/{id}', [KeamananController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
 
 # Harga Controller
-Route::get('/harga', [HargaController::class, 'index']);
-Route::post('/harga', [HargaController::class, 'store']);
-Route::put('/harga/{id}', [HargaController::class, 'update']);
-Route::delete('/harga/{id}', [HargaController::class, 'destroy']);
+Route::get('/harga', [HargaController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/harga', [HargaController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/harga/{id}', [HargaController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/harga/{id}', [HargaController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
 
 # Jarak Controller
-Route::get('/jarak', [JarakController::class, 'index']);
-Route::post('/jarak', [JarakController::class, 'store']);
-Route::put('/jarak/{id}', [JarakController::class, 'update']);
-Route::delete('/jarak/{id}', [JarakController::class, 'destroy']);
+Route::get('/jarak', [JarakController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/jarak', [JarakController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/jarak/{id}', [JarakController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/jarak/{id}', [JarakController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
 
 # Akses Jalan Controller
-Route::get('/aksesjalan', [AksesJalanController::class, 'index']);
-Route::post('/aksesjalan', [AksesJalanController::class, 'store']);
-Route::put('/aksesjalan/{id}', [AksesJalanController::class, 'update']);
-Route::delete('/aksesjalan/{id}', [AksesJalanController::class, 'destroy']);
+Route::get('/aksesjalan', [AksesJalanController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/aksesjalan', [AksesJalanController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/aksesjalan/{id}', [AksesJalanController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/aksesjalan/{id}', [AksesJalanController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
