@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 
 @section('title', 'Kriteria')
 
@@ -120,7 +120,7 @@
                                                 <div class="form-group mb-4">
                                                     <label for="exampleFormControlSelect1">Jenis</label>
                                                     <select name="jenis" class="form-control" id="exampleFormControlSelect1">
-                                                        <option selected value="{{ $data->kepentingan }}">{{ $data->kepentingan }}</option>
+                                                        <option selected value="{{ $data->jenis }}">{{ $data->jenis }}</option>
                                                         <option value="Benefit">Benefit</option>
                                                         <option value="Cost">Cost</option>
 

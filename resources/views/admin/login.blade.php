@@ -46,7 +46,7 @@
                         <div class="text-center">
                             <img class="img-fluid" src="{{ asset('admin/logo/logo-bps-prob-2.jpg') }}" alt="wrapkit">
                         </div>
-                        <h2 class="mt-3 text-center">Sign In</h2>
+                        <h3 class="mt-3 text-center">Sign In</h3>
 
                         <form action="/login" method="POST" class="mt-4">
                             @csrf
@@ -68,7 +68,7 @@
                                 </div>
 
                                 <div class="col-lg-12 text-center mt-5">
-                                    Don't have an account? <a href="/register" class="text-danger">Sign Up</a>
+
                                 </div>
                             </div>
                         </form>

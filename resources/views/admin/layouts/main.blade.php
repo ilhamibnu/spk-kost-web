@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/logo/logo1.png') }}">
-    <title>@yield('title')</title>
+    <title>@yield('title') - Sistem Pendukung Keputusan Kost</title>
     <!-- Custom CSS -->
     <link href="{{ asset('admin/assets/extra-libs/c3/c3.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
@@ -34,9 +34,9 @@
 
     <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
-        @include('partials.header')
+        @include('admin.partials.header')
 
-        @include('partials.aside')
+        @include('admin.partials.aside')
 
         <div class="page-wrapper">
 
@@ -116,7 +116,7 @@
 
     <script src="{{ asset('admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- apps -->
     <!-- apps -->
     <script src="{{ asset('admin/dist/js/app-style-switcher.js') }}"></script>
