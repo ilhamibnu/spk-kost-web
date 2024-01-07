@@ -4,9 +4,16 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\AksesJalan;
+use App\Models\Fasilitas;
+use App\Models\Harga;
+use App\Models\Jarak;
+use App\Models\Keamanan;
 use App\Models\Kriteria;
+use App\Models\Lokasi;
 use App\Models\User;
 use App\Models\Role;
+
 use Illuminate\Database\Seeder;
 
 
@@ -17,13 +24,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
         Role::create([
             'name' => 'Admin',
         ]);
@@ -73,6 +73,96 @@ class DatabaseSeeder extends Seeder
             'name' => 'Akses Jalan',
             'kepentingan' => 2,
             'jenis' => 'Benefit'
+        ]);
+
+        Jarak::create([
+            'name' => 'Jauh (>10 km)',
+            'bobot' => 5,
+        ]);
+
+        Jarak::create([
+            'name' => 'Sedang (3-5 km)',
+            'bobot' => 3,
+        ]);
+
+        Jarak::create([
+            'name' => 'Dekat (<3 km)',
+            'bobot' => 1,
+        ]);
+
+        Fasilitas::create([
+            'name' => 'Lengkap ( AC, TV, km dalam)',
+            'bobot' => 5,
+        ]);
+
+        Fasilitas::create([
+            'name' => 'Menengah (km dalam, springbed)',
+            'bobot' => 3,
+        ]);
+
+        Fasilitas::create([
+            'name' => 'Dasar (wifi, km luar, meja, lemari)',
+            'bobot' => 1,
+        ]);
+
+        Harga::create([
+            'name' => 'Mahal (>750 ribu)',
+            'bobot' => 5,
+        ]);
+
+        Harga::create([
+            'name' => 'Sedang (450-750 ribu)',
+            'bobot' => 3,
+        ]);
+
+        Harga::create([
+            'name' => 'Murah (300-450 ribu)',
+            'bobot' => 1,
+        ]);
+
+        Lokasi::create([
+            'name' => 'Dekat (toko, laundry, Indomaret, Pom Bensin)',
+            'bobot' => 5,
+        ]);
+
+        Lokasi::create([
+            'name' => 'Sedang',
+            'bobot' => 3,
+        ]);
+
+        Lokasi::create([
+            'name' => 'Jauh',
+            'bobot' => 1,
+        ]);
+
+        Keamanan::create([
+            'name' => 'Ada Satpam',
+            'bobot' => 5,
+        ]);
+
+        Keamanan::create([
+            'name' => 'Ada CCTV',
+            'bobot' => 3,
+        ]);
+
+        Keamanan::create([
+            'name' => 'Tidak Ada',
+            'bobot' => 1,
+        ]);
+
+        AksesJalan::create([
+            'name' => 'Baik bisa dilalui mobil',
+            'bobot' => 5,
+        ]);
+
+        AksesJalan::create([
+            'name' => 'Jalan rusak',
+            'bobot' => 3,
+        ]);
+
+        AksesJalan::create([
+            'name' => 'Gang kecil/ sempit',
+            'bobot' => 1,
         ]);
     }
 }

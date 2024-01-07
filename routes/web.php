@@ -10,6 +10,7 @@ use App\Http\Controllers\KeamananController;
 use App\Http\Controllers\KostController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,6 +42,9 @@ Route::get('/alternatif', [AlternatifController::class, 'index'])->middleware('I
 # Kriteria Controller
 Route::get('/kriteria', [KriteriaController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
 Route::put('/kriteria/{id}', [KriteriaController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+
+# Sub Kriteria Controller
+Route::get('/sub-kriteria', [SubKriteriaController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
 
 # Lokasi Controller
 Route::get('/lokasi', [LokasiController::class, 'index'])->middleware('IsLogin', 'IsAdmin');

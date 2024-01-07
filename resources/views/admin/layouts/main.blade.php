@@ -104,9 +104,9 @@
 
             </div>
 
-            <footer class="footer text-center text-muted">
+            {{-- <footer class="footer text-center text-muted">
                 Badan Pusat Statistik Kabupaten Probolinggo
-            </footer>
+            </footer> --}}
 
         </div>
 
