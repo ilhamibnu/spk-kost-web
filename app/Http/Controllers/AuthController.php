@@ -8,6 +8,12 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    public function index()
+    {
+        return view('admin.login');
+    }
+
+
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -38,5 +44,14 @@ class AuthController extends Controller
         } else {
             return  redirect()->back()->with('erroremail', 'Email salah');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        return redirect('/')->with('logout', 'Anda berhasil logout');
     }
 }
