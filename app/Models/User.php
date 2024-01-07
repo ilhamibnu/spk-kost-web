@@ -17,10 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = 'tb_user';
+
+
     protected $fillable = [
         'name',
         'email',
         'password',
+        'id_role',
     ];
 
     /**
@@ -42,4 +47,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'id_role', 'id');
+    }
+
+    public function simpankost()
+    {
+        return $this->hasMany(SimpanKost::class, 'id_user', 'id');
+    }
 }
