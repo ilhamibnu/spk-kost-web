@@ -20,13 +20,11 @@ class KriteriaController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'kepentingan' => 'required|numeric|digits_between:1,5',
+            'kepentingan' => 'required',
             'jenis' => 'required',
         ], [
             'name.required' => 'Nama kriteria harus diisi',
             'kepentingan.required' => 'Kepentingan harus diisi',
-            'kepentingan.numeric' => 'Kepentingan harus berupa angka',
-            'kepentingan.digits_between' => 'Kepentingan harus berupa angka 1-5',
             'jenis.required' => 'Jenis kriteria harus diisi',
         ]);
 
@@ -42,13 +40,11 @@ class KriteriaController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'kepentingan' => 'required|numeric|digits_between:1,5',
+            'kepentingan' => 'required',
             'jenis' => 'required',
         ], [
             'name.required' => 'Nama kriteria harus diisi',
             'kepentingan.required' => 'Kepentingan harus diisi',
-            'kepentingan.numeric' => 'Kepentingan harus berupa angka',
-            'kepentingan.digits_between' => 'Kepentingan harus berupa angka 1-5',
             'jenis.required' => 'Jenis kriteria harus diisi',
         ]);
 

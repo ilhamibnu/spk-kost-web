@@ -4,22 +4,12 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                @if(Auth::user()->id_role == '1' || Auth::user()->id_role == '2')
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/dashboard" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a></li>
 
-                <li class="sidebar-item"> <a class="sidebar-link" href="/isian" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Isian</span></a>
-                </li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/pengguna" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Pengguna</span></a></li>
-
-
-
-                @else
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/dashboard" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a></li>
-
-                <li class="sidebar-item"> <a class="sidebar-link" href="/isian" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Isian</span></a> </li>
-                @endif
-
-
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="#" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link" href="/kost" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Kost</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/kriteria" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Kriteria</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/alternatif" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Alternatif</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/sub-kriteria" aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Sub Kriteria</span></a></li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

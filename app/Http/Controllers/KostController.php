@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AksesJalan;
 use App\Models\Alternatif;
+use App\Models\Fasilitas;
+use App\Models\Keamanan;
 use Illuminate\Http\Request;
 use App\Models\Kost;
+use App\Models\Harga;
+use App\Models\Jarak;
+use App\Models\Lokasi;
 
 class KostController extends Controller
 {
@@ -19,8 +25,21 @@ class KostController extends Controller
             'lokasi',
         ])->get();
 
+        $aksesjalan = AksesJalan::all();
+        $fasilitas = Fasilitas::all();
+        $keamanan = Keamanan::all();
+        $harga = Harga::all();
+        $jarak = Jarak::all();
+        $lokasi = Lokasi::all();
+
         return view('admin.pages.kost', [
             'kost' => $kost,
+            'aksesjalan' => $aksesjalan,
+            'fasilitas' => $fasilitas,
+            'keamanan' => $keamanan,
+            'harga' => $harga,
+            'jarak' => $jarak,
+            'lokasi' => $lokasi,
         ]);
     }
 

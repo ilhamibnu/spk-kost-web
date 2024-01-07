@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Pengguna')
+@section('title', 'Sub Kriteria')
 
 
 @section('content')
@@ -8,7 +8,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Data Pengguna</h4>
+                <h4 class="card-title">Data Sub Kriteria</h4>
 
                 @if($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show mt-2">
