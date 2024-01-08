@@ -10,6 +10,7 @@ use App\Http\Controllers\KeamananController;
 use App\Http\Controllers\KostController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\PenghitunganController;
 use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Route;
 
@@ -81,3 +82,6 @@ Route::get('/aksesjalan', [AksesJalanController::class, 'index'])->middleware('I
 Route::post('/aksesjalan', [AksesJalanController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
 Route::put('/aksesjalan/{id}', [AksesJalanController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
 Route::delete('/aksesjalan/{id}', [AksesJalanController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
+
+# Penghitungan Controller
+Route::get('/penghitungan', [PenghitunganController::class, 'index'])->middleware('IsLogin', 'IsAdmin');

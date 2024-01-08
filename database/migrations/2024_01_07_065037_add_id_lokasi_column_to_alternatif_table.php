@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('tb_alternatif', function (Blueprint $table) {
             $table->unsignedBigInteger('id_lokasi')->nullable();
-            $table->foreign('id_lokasi')->references('id')->on('tb_harga')->onDelete('cascade');
+            $table->foreign('id_lokasi')->references('id')->on('tb_lokasi')->onDelete('cascade');
         });
     }
 

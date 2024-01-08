@@ -67,37 +67,39 @@
 
                                         <div class="modal-body">
 
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Name</label>
-                                                <li>{{ $data->name }}</li>
-                                            </div>
+                                            <div class="m-2">
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Name</label>
+                                                    <li>{{ $data->name }}</li>
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Akses Jalan</label>
-                                                <li>{{ $data->aksesjalan->name }}</li>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Akses Jalan</label>
+                                                    <li>{{ $data->aksesjalan->name }}</li>
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Fasilitas</label>
-                                                <li>{{ $data->fasilitas->name }}</li>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Fasilitas</label>
+                                                    <li>{{ $data->fasilitas->name }}</li>
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Keamanan</label>
-                                                <li>{{ $data->keamanan->name }}</li>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Keamanan</label>
+                                                    <li>{{ $data->keamanan->name }}</li>
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Harga</label>
-                                                <li>{{ $data->harga->name }}</li>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Jarak</label>
-                                                <li>{{ $data->jarak->name }}</li>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">Lokasi</label>
-                                                <li>{{ $data->lokasi->name }}</li>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Harga</label>
+                                                    <li>{{ $data->harga->name }}</li>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Jarak</label>
+                                                    <li>{{ $data->jarak->name }}</li>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Lokasi</label>
+                                                    <li>{{ $data->lokasi->name }}</li>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -150,15 +152,15 @@
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="control-label">Name</label>
-                                                    <input name="name" value="" type="text" class="form-control" required>
+                                                    <input name="name" value="{{ $data->name }}" type="text" class="form-control" required>
                                                 </div>
 
                                                 <div class="form-group mb-4">
-                                                    <label for="exampleFormControlSelect1">Akses Jalan</label>
-                                                    <select name="id_aksesjalan" class="form-control" id="exampleFormControlSelect1" required>
-                                                        <option selected value="{{ $data->aksesjalan->id }}">{{ $data->aksesjalan->name }}</option>
-                                                        @foreach($aksesjalan as $dataaksesjalan)
-                                                        <option value="{{ $dataaksesjalan->id }}">{{ $dataaksesjalan->name }}</option>
+                                                    <label for="exampleFormControlSelect1">Jarak</label>
+                                                    <select name="id_jarak" class="form-control" id="exampleFormControlSelect1" required>
+                                                        <option selected value="{{ $data->jarak->id }}">{{ $data->jarak->name }}</option>
+                                                        @foreach($jarak as $datajarak)
+                                                        <option value="{{ $datajarak->id }}">{{ $datajarak->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -173,35 +175,12 @@
                                                     </select>
                                                 </div>
 
-
-                                                <div class="form-group mb-4">
-                                                    <label for="exampleFormControlSelect1">Keamanan</label>
-                                                    <select name="id_keamanan" class="form-control" id="exampleFormControlSelect1" required>
-                                                        <option selected value="{{ $data->keamanan->id }}">{{ $data->keamanan->name }}</option>
-                                                        @foreach($keamanan as $datakeamanan)
-                                                        <option value="{{ $datakeamanan->id }}">{{ $datakeamanan->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-
                                                 <div class="form-group mb-4">
                                                     <label for="exampleFormControlSelect1">Harga</label>
                                                     <select name="id_harga" class="form-control" id="exampleFormControlSelect1" required>
                                                         <option selected value="{{ $data->harga->id }}">{{ $data->harga->name }}</option>
                                                         @foreach($harga as $dataharga)
                                                         <option value="{{ $dataharga->id }}">{{ $dataharga->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-
-                                                <div class="form-group mb-4">
-                                                    <label for="exampleFormControlSelect1">Jarak</label>
-                                                    <select name="id_jarak" class="form-control" id="exampleFormControlSelect1" required>
-                                                        <option selected value="{{ $data->jarak->id }}">{{ $data->jarak->name }}</option>
-                                                        @foreach($jarak as $datajarak)
-                                                        <option value="{{ $datajarak->id }}">{{ $datajarak->name }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -216,6 +195,28 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
+
+                                                <div class="form-group mb-4">
+                                                    <label for="exampleFormControlSelect1">Keamanan</label>
+                                                    <select name="id_keamanan" class="form-control" id="exampleFormControlSelect1" required>
+                                                        <option selected value="{{ $data->keamanan->id }}">{{ $data->keamanan->name }}</option>
+                                                        @foreach($keamanan as $datakeamanan)
+                                                        <option value="{{ $datakeamanan->id }}">{{ $datakeamanan->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+
+
+                                                <div class="form-group mb-4">
+                                                    <label for="exampleFormControlSelect1">Akses Jalan</label>
+                                                    <select name="id_aksesjalan" class="form-control" id="exampleFormControlSelect1" required>
+                                                        <option selected value="{{ $data->aksesjalan->id }}">{{ $data->aksesjalan->name }}</option>
+                                                        @foreach($aksesjalan as $dataaksesjalan)
+                                                        <option value="{{ $dataaksesjalan->id }}">{{ $dataaksesjalan->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+
 
                                             </div>
                                             <div class="modal-footer">
@@ -250,11 +251,11 @@
                                     </div>
 
                                     <div class="form-group mb-4">
-                                        <label for="exampleFormControlSelect1">Akses Jalan</label>
-                                        <select name="id_aksesjalan" class="form-control" id="exampleFormControlSelect1" required>
-                                            <option selected disabled value="">Pilih Akses Jalan</option>
-                                            @foreach($aksesjalan as $dataaksesjalan)
-                                            <option value="{{ $dataaksesjalan->id }}">{{ $dataaksesjalan->name }}</option>
+                                        <label for="exampleFormControlSelect1">Jarak</label>
+                                        <select name="id_jarak" class="form-control" id="exampleFormControlSelect1" required>
+                                            <option selected disabled value="">Pilih Jarak</option>
+                                            @foreach($jarak as $datajarak)
+                                            <option value="{{ $datajarak->id }}">{{ $datajarak->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -265,6 +266,26 @@
                                             <option selected disabled value="">Pilih Fasilitas</option>
                                             @foreach($fasilitas as $datafasilitas)
                                             <option value="{{ $datafasilitas->id }}">{{ $datafasilitas->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">Harga</label>
+                                        <select name="id_harga" class="form-control" id="exampleFormControlSelect1" required>
+                                            <option selected disabled value="">Pilih Harga</option>
+                                            @foreach($harga as $dataharga)
+                                            <option value="{{ $dataharga->id }}">{{ $dataharga->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">Lokasi</label>
+                                        <select name="id_lokasi" class="form-control" id="exampleFormControlSelect1" required>
+                                            <option selected disabled value="">Pilih Lokasi</option>
+                                            @foreach($lokasi as $datalokasi)
+                                            <option value="{{ $datalokasi->id }}">{{ $datalokasi->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -280,39 +301,15 @@
                                         </select>
                                     </div>
 
-
                                     <div class="form-group mb-4">
-                                        <label for="exampleFormControlSelect1">Harga</label>
-                                        <select name="id_harga" class="form-control" id="exampleFormControlSelect1" required>
-                                            <option selected disabled value="">Pilih Harga</option>
-                                            @foreach($harga as $dataharga)
-                                            <option value="{{ $dataharga->id }}">{{ $dataharga->name }}</option>
+                                        <label for="exampleFormControlSelect1">Akses Jalan</label>
+                                        <select name="id_aksesjalan" class="form-control" id="exampleFormControlSelect1" required>
+                                            <option selected disabled value="">Pilih Akses Jalan</option>
+                                            @foreach($aksesjalan as $dataaksesjalan)
+                                            <option value="{{ $dataaksesjalan->id }}">{{ $dataaksesjalan->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-
-
-                                    <div class="form-group mb-4">
-                                        <label for="exampleFormControlSelect1">Jarak</label>
-                                        <select name="id_jarak" class="form-control" id="exampleFormControlSelect1" required>
-                                            <option selected disabled value="">Pilih Jarak</option>
-                                            @foreach($jarak as $datajarak)
-                                            <option value="{{ $datajarak->id }}">{{ $datajarak->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-
-                                    <div class="form-group mb-4">
-                                        <label for="exampleFormControlSelect1">Lokasi</label>
-                                        <select name="id_lokasi" class="form-control" id="exampleFormControlSelect1" required>
-                                            <option selected disabled value="">Pilih Lokasi</option>
-                                            @foreach($lokasi as $datalokasi)
-                                            <option value="{{ $datalokasi->id }}">{{ $datalokasi->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>

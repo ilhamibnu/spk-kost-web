@@ -17,7 +17,7 @@ class Kost extends Model
         'id_fasilitas',
         'id_jarak',
         'id_harga',
-        'id_keaamanan',
+        'id_keamanan',
         'id_lokasi',
 
     ];
@@ -54,7 +54,7 @@ class Kost extends Model
 
     public function keamanan()
     {
-        return $this->belongsTo(Keamanan::class, 'id_keaamanan');
+        return $this->belongsTo(Keamanan::class, 'id_keamanan');
     }
 
     public function lokasi()
