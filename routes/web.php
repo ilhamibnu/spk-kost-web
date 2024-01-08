@@ -11,6 +11,7 @@ use App\Http\Controllers\KostController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\PenghitunganController;
+use App\Http\Controllers\SimulasiRekomendasiController;
 use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Route;
 
@@ -85,3 +86,7 @@ Route::delete('/aksesjalan/{id}', [AksesJalanController::class, 'destroy'])->mid
 
 # Penghitungan Controller
 Route::get('/penghitungan', [PenghitunganController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+
+# Simulasi Rekomendasi Controller
+Route::get('/simulasi-rekomendasi', [SimulasiRekomendasiController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/simulasi-rekomendasi', [SimulasiRekomendasiController::class, 'cari'])->middleware('IsLogin', 'IsAdmin');
