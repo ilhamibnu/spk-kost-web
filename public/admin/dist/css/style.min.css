@@ -22,7 +22,7 @@ input {
     list-style: none;
 }
 .background {
-    background: url("../../logo/bg-bps-prob.jpg");
+    background: url("../../logo/bg-login.jpg");
     background-size: cover;
     background-position: center center;
     height: 100%;

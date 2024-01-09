@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/logo/logo1.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/logo/logo-baru.png') }}">
     <title>Login</title>
     <!-- Custom CSS -->
     <link href="{{ asset('admin/dist/css/style.min.css') }}" rel="stylesheet">
@@ -44,7 +44,7 @@
                 <div class="col-lg-5 col-md-7 bg-white">
                     <div class="p-3">
                         <div class="text-center">
-                            <img class="img-fluid" src="{{ asset('admin/logo/logo-bps-prob-2.jpg') }}" alt="wrapkit">
+                            <img class="img-fluid" src="{{ asset('admin/logo/logo-baru.png') }}" width="150px" height="150px" alt="wrapkit">
                         </div>
                         <h3 class="mt-3 text-center">Sign In</h3>
 

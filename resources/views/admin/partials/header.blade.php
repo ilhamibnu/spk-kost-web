@@ -12,7 +12,7 @@
                     <b class="logo-icon">
                         <!-- Dark Logo icon -->
 
-                        <img class="img-fluid" src="{{ asset('logo/logo3.png') }}" alt="homepage" />
+                        <img class="img-fluid" width="100px" height="100px" src="{{ asset('admin/logo/logo-baru.png') }}" alt="homepage" />
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
@@ -58,8 +58,8 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="" data-toggle="modal" data-target="#profil"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
-                            My Profile</a>
+                        {{-- <a class="dropdown-item" href="" data-toggle="modal" data-target="#profil"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
+                            My Profile</a> --}}
 
                         <a class="dropdown-item" href="/logout"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>
                             Logout</a>

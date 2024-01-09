@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/logo/logo1.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/logo/logo-baru.png') }}">
     <title>@yield('title') - Sistem Pendukung Keputusan Kost</title>
     <!-- Custom CSS -->
     <link href="{{ asset('admin/assets/extra-libs/c3/c3.min.css') }}" rel="stylesheet">

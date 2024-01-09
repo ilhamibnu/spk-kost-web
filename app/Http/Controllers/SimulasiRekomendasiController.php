@@ -11,10 +11,7 @@ class SimulasiRekomendasiController extends Controller
 {
     public function index()
     {
-
-
         $alternatifterbaik = '';
-
         return view('admin.pages.simulasi-rekomendasi', [
             'alternatifterbaik' => $alternatifterbaik,
         ]);
