@@ -11,77 +11,156 @@
             <h4 class="card-title">Pilih Filter</h4>
             <div class="form-body">
                 <div class="form-group">
+
                     <div class="row align-items-center text-center justify-content-center m-2">
+
                         <div class="form-group col-md-3">
                             <label for="exampleFormControlSelect1">Jarak</label>
-                            <select name="id_jarak" class="form-control" id="exampleFormControlSelect1" required>
+                            <select name="kepentingan_jarak" class="form-control" id="exampleFormControlSelect1" required>
                                 <option selected disabled value="">Pilih Jarak</option>
-                                @foreach($jarak as $datajarak)
-                                <option value="{{ $datajarak->id }}">{{ $datajarak->name }}</option>
-                                @endforeach
+                                <option value="1">Tidak Penting</option>
+                                <option value="2">Kurang Penting</option>
+                                <option value="3">Cukup Penting</option>
+                                <option value="4">Penting</option>
+                                <option value="5">Sangat Penting</option>
                             </select>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="exampleFormControlSelect1">Fasilitas</label>
-                            <select name="id_fasilitas" class="form-control" id="exampleFormControlSelect1" required>
+                            <select name="kepentingan_fasilitas" class="form-control" id="exampleFormControlSelect1" required>
                                 <option selected disabled value="">Pilih Fasilitas</option>
-                                @foreach($fasilitas as $datafasilitas)
-                                <option value="{{ $datafasilitas->id }}">{{ $datafasilitas->name }}</option>
-                                @endforeach
+                                <option value="1">Tidak Penting</option>
+                                <option value="2">Kurang Penting</option>
+                                <option value="3">Cukup Penting</option>
+                                <option value="4">Penting</option>
+                                <option value="5">Sangat Penting</option>
                             </select>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="exampleFormControlSelect1">Harga</label>
-                            <select name="id_harga" class="form-control" id="exampleFormControlSelect1" required>
+                            <select name="kepentingan_harga" class="form-control" id="exampleFormControlSelect1" required>
                                 <option selected disabled value="">Pilih Harga</option>
-                                @foreach($harga as $dataharga)
-                                <option value="{{ $dataharga->id }}">{{ $dataharga->name }}</option>
-                                @endforeach
+                                <option value="1">Tidak Penting</option>
+                                <option value="2">Kurang Penting</option>
+                                <option value="3">Cukup Penting</option>
+                                <option value="4">Penting</option>
+                                <option value="5">Sangat Penting</option>
                             </select>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="exampleFormControlSelect1">Lokasi</label>
-                            <select name="id_lokasi" class="form-control" id="exampleFormControlSelect1" required>
+                            <select name="kepentingan_lokasi" class="form-control" id="exampleFormControlSelect1" required>
                                 <option selected disabled value="">Pilih Lokasi</option>
-                                @foreach($lokasi as $datalokasi)
-                                <option value="{{ $datalokasi->id }}">{{ $datalokasi->name }}</option>
-                                @endforeach
+                                <option value="1">Tidak Penting</option>
+                                <option value="2">Kurang Penting</option>
+                                <option value="3">Cukup Penting</option>
+                                <option value="4">Penting</option>
+                                <option value="5">Sangat Penting</option>
                             </select>
                         </div>
 
-
                         <div class="form-group col-md-3">
                             <label for="exampleFormControlSelect1">Keamanan</label>
-                            <select name="id_keamanan" class="form-control" id="exampleFormControlSelect1" required>
+                            <select name="kepentingan_keamanan" class="form-control" id="exampleFormControlSelect1" required>
                                 <option selected disabled value="">Pilih Keamanan</option>
-                                @foreach($keamanan as $datakeamanan)
-                                <option value="{{ $datakeamanan->id }}">{{ $datakeamanan->name }}</option>
-                                @endforeach
+                                <option value="1">Tidak Penting</option>
+                                <option value="2">Kurang Penting</option>
+                                <option value="3">Cukup Penting</option>
+                                <option value="4">Penting</option>
+                                <option value="5">Sangat Penting</option>
                             </select>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="exampleFormControlSelect1">Akses Jalan</label>
-                            <select name="id_aksesjalan" class="form-control" id="exampleFormControlSelect1" required>
+                            <select name="kepentingan_aksesjalan" class="form-control" id="exampleFormControlSelect1" required>
                                 <option selected disabled value="">Pilih Akses Jalan</option>
-                                @foreach($aksesjalan as $dataaksesjalan)
-                                <option value="{{ $dataaksesjalan->id }}">{{ $dataaksesjalan->name }}</option>
-                                @endforeach
+                                <option value="1">Tidak Penting</option>
+                                <option value="2">Kurang Penting</option>
+                                <option value="3">Cukup Penting</option>
+                                <option value="4">Penting</option>
+                                <option value="5">Sangat Penting</option>
                             </select>
                         </div>
+
+
+
+
+
+                        {{-- <div class="form-group col-md-3">
+                            <label for="exampleFormControlSelect1">Jarak</label>
+                            <select name="id_jarak" class="form-control" id="exampleFormControlSelect1" required>
+                                <option selected disabled value="">Pilih Jarak</option>
+                                @foreach($jarak as $datajarak)
+                                <option value="{{ $datajarak->id }}">{{ $datajarak->name }}</option>
+                        @endforeach
+                        </select>
                     </div>
-                    <div class="align-items-center text-center row justify-content-center">
-                        <button type="submit" class="btn btn-primary">Cari</button>
+
+                    <div class="form-group col-md-3">
+                        <label for="exampleFormControlSelect1">Fasilitas</label>
+                        <select name="id_fasilitas" class="form-control" id="exampleFormControlSelect1" required>
+                            <option selected disabled value="">Pilih Fasilitas</option>
+                            @foreach($fasilitas as $datafasilitas)
+                            <option value="{{ $datafasilitas->id }}">{{ $datafasilitas->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="exampleFormControlSelect1">Harga</label>
+                        <select name="id_harga" class="form-control" id="exampleFormControlSelect1" required>
+                            <option selected disabled value="">Pilih Harga</option>
+                            @foreach($harga as $dataharga)
+                            <option value="{{ $dataharga->id }}">{{ $dataharga->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="exampleFormControlSelect1">Lokasi</label>
+                        <select name="id_lokasi" class="form-control" id="exampleFormControlSelect1" required>
+                            <option selected disabled value="">Pilih Lokasi</option>
+                            @foreach($lokasi as $datalokasi)
+                            <option value="{{ $datalokasi->id }}">{{ $datalokasi->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+                    <div class="form-group col-md-3">
+                        <label for="exampleFormControlSelect1">Keamanan</label>
+                        <select name="id_keamanan" class="form-control" id="exampleFormControlSelect1" required>
+                            <option selected disabled value="">Pilih Keamanan</option>
+                            @foreach($keamanan as $datakeamanan)
+                            <option value="{{ $datakeamanan->id }}">{{ $datakeamanan->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="exampleFormControlSelect1">Akses Jalan</label>
+                        <select name="id_aksesjalan" class="form-control" id="exampleFormControlSelect1" required>
+                            <option selected disabled value="">Pilih Akses Jalan</option>
+                            @foreach($aksesjalan as $dataaksesjalan)
+                            <option value="{{ $dataaksesjalan->id }}">{{ $dataaksesjalan->name }}</option>
+                            @endforeach
+                        </select>
+                    </div> --}}
+
+                </div>
+                <div class="align-items-center text-center row justify-content-center">
+                    <button type="submit" class="btn btn-primary">Cari</button>
                 </div>
             </div>
-
         </div>
 
-    </form>
+</div>
+
+</form>
 </div>
 
 <div class="row">

@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AksesJalan;
-use App\Models\Alternatif;
-use App\Models\Fasilitas;
-use App\Models\Harga;
-use App\Models\Jarak;
-use App\Models\Keamanan;
+
 use App\Models\Kriteria;
-use App\Models\Lokasi;
+use App\Models\Alternatif;
 use Illuminate\Http\Request;
 
 class SimulasiRekomendasiController extends Controller
@@ -20,56 +15,36 @@ class SimulasiRekomendasiController extends Controller
 
         $alternatifterbaik = '';
 
-        $lokasi = Lokasi::all();
-        $harga = Harga::all();
-        $fasilitas = Fasilitas::all();
-        $jarak = Jarak::all();
-        $keamanan = Keamanan::all();
-        $aksesjalan = AksesJalan::all();
-
-
         return view('admin.pages.simulasi-rekomendasi', [
-            'lokasi' => $lokasi,
-            'harga' => $harga,
-            'fasilitas' => $fasilitas,
-            'jarak' => $jarak,
-            'keamanan' => $keamanan,
-            'aksesjalan' => $aksesjalan,
             'alternatifterbaik' => $alternatifterbaik,
         ]);
     }
 
     public function cari(Request $request)
     {
-        $lokasi = Lokasi::all();
-        $harga = Harga::all();
-        $fasilitas = Fasilitas::all();
-        $jarak = Jarak::all();
-        $keamanan = Keamanan::all();
-        $aksesjalan = AksesJalan::all();
 
         $request->validate([
-            'id_lokasi' => 'required',
-            'id_harga' => 'required',
-            'id_fasilitas' => 'required',
-            'id_jarak' => 'required',
-            'id_keamanan' => 'required',
-            'id_aksesjalan' => 'required',
+            'kepentingan_lokasi' => 'required',
+            'kepentingan_harga' => 'required',
+            'kepentingan_fasilitas' => 'required',
+            'kepentingan_jarak' => 'required',
+            'kepentingan_keamanan' => 'required',
+            'kepentingan_aksesjalan' => 'required',
         ], [
-            'id_lokasi.required' => 'Lokasi harus diisi',
-            'id_harga.required' => 'Harga harus diisi',
-            'id_fasilitas.required' => 'Fasilitas harus diisi',
-            'id_jarak.required' => 'Jarak harus diisi',
-            'id_keamanan.required' => 'Keamanan harus diisi',
-            'id_aksesjalan.required' => 'Akses Jalan harus diisi'
+            'kepentingan_lokasi.required' => 'Kepentingan Lokasi tidak boleh kosong',
+            'kepentingan_harga.required' => 'Kepentingan Harga tidak boleh kosong',
+            'kepentingan_fasilitas.required' => 'Kepentingan Fasilitas tidak boleh kosong',
+            'kepentingan_jarak.required' => 'Kepentingan Jarak tidak boleh kosong',
+            'kepentingan_keamanan.required' => 'Kepentingan Keamanan tidak boleh kosong',
+            'kepentingan_aksesjalan.required' => 'Kepentingan Akses Jalan tidak boleh kosong',
         ]);
 
-        $kepentinganlokasi = Lokasi::find($request->id_lokasi)->bobot;
-        $kepentinganharga = Harga::find($request->id_harga)->bobot;
-        $kepentinganfasilitas = Fasilitas::find($request->id_fasilitas)->bobot;
-        $kepentinganjarak = Jarak::find($request->id_jarak)->bobot;
-        $kepentingankeamanan = Keamanan::find($request->id_keamanan)->bobot;
-        $kepentinganaksesjalan = AksesJalan::find($request->id_aksesjalan)->bobot;
+        $kepentinganlokasi = $request->kepentingan_lokasi;
+        $kepentinganharga = $request->kepentingan_harga;
+        $kepentinganfasilitas = $request->kepentingan_fasilitas;
+        $kepentinganjarak = $request->kepentingan_jarak;
+        $kepentingankeamanan = $request->kepentingan_keamanan;
+        $kepentinganaksesjalan = $request->kepentingan_aksesjalan;
 
         $jumlahkepentingan = $kepentinganlokasi + $kepentinganharga + $kepentinganfasilitas + $kepentinganjarak + $kepentingankeamanan + $kepentinganaksesjalan;
 
@@ -80,37 +55,37 @@ class SimulasiRekomendasiController extends Controller
         $nilaibobotkeamanan = $kepentingankeamanan / $jumlahkepentingan;
         $nilaibobotaksesjalan = $kepentinganaksesjalan / $jumlahkepentingan;
 
-        if (Kriteria::all()->where('name', 'Lokasi')->first()->sifat == 'benefit') {
+        if (Kriteria::all()->where('name', 'Lokasi')->first()->jenis == 'Benefit') {
             $nilaipangkatlokasi = pow($nilaibobotlokasi, 1);
         } else {
             $nilaipangkatlokasi = -1 * pow($nilaibobotlokasi, 1);
         }
 
-        if (Kriteria::all()->where('name', 'Harga')->first()->sifat == 'benefit') {
+        if (Kriteria::all()->where('name', 'Harga')->first()->jenis == 'Benefit') {
             $nilaipangkatharga = pow($nilaibobotharga, 1);
         } else {
             $nilaipangkatharga = -1 * pow($nilaibobotharga, 1);
         }
 
-        if (Kriteria::all()->where('name', 'Fasilitas')->first()->sifat == 'benefit') {
+        if (Kriteria::all()->where('name', 'Fasilitas')->first()->jenis == 'Benefit') {
             $nilaipangkatfasilitas = pow($nilaibobotfasilitas, 1);
         } else {
             $nilaipangkatfasilitas = -1 * pow($nilaibobotfasilitas, 1);
         }
 
-        if (Kriteria::all()->where('name', 'Jarak')->first()->sifat == 'benefit') {
+        if (Kriteria::all()->where('name', 'Jarak')->first()->jenis == 'Benefit') {
             $nilaipangkatjarak = pow($nilaibobotjarak, 1);
         } else {
             $nilaipangkatjarak = -1 * pow($nilaibobotjarak, 1);
         }
 
-        if (Kriteria::all()->where('name', 'Keamanan')->first()->sifat == 'benefit') {
+        if (Kriteria::all()->where('name', 'Keamanan')->first()->jenis == 'Benefit') {
             $nilaipangkatkeamanan = pow($nilaibobotkeamanan, 1);
         } else {
             $nilaipangkatkeamanan = -1 * pow($nilaibobotkeamanan, 1);
         }
 
-        if (Kriteria::all()->where('name', 'Akses Jalan')->first()->sifat == 'benefit') {
+        if (Kriteria::all()->where('name', 'Akses Jalan')->first()->jenis == 'Benefit') {
             $nilaipangkataksesjalan = pow($nilaibobotaksesjalan, 1);
         } else {
             $nilaipangkataksesjalan = -1 * pow($nilaibobotaksesjalan, 1);
@@ -165,14 +140,7 @@ class SimulasiRekomendasiController extends Controller
 
 
         return view('admin.pages.simulasi-rekomendasi', [
-            'lokasi' => $lokasi,
-            'harga' => $harga,
-            'fasilitas' => $fasilitas,
-            'jarak' => $jarak,
-            'keamanan' => $keamanan,
-            'aksesjalan' => $aksesjalan,
             'alternatifterbaik' => $alternatifterbaikData,
-
         ]);
     }
 }
