@@ -126,21 +126,39 @@ class SimulasiRekomendasiController extends Controller
         // sorting vektor V dari yang terbesar
         $vektorVsorted = collect($vektorVwithId)->sortByDesc('vektorV')->values()->all();
 
-        // ambil id kost nya saja
+        // ambil id kost dan vektor V nya saja
         $alternatifterbaik = [];
         foreach ($vektorVsorted as $key => $value) {
-            $alternatifterbaik[$key] = $value['id'];
+            $alternatifterbaik[$key] = [
+                'id' => $value['id'],
+                'vektorV' => $value['vektorV']
+            ];
         }
 
-        // ambil data kost nya saja
+        // tambahkan data kost dan vektor V nya
         $alternatifterbaikData = [];
         foreach ($alternatifterbaik as $key => $value) {
-            $alternatifterbaikData[$key] = Alternatif::with('kost')->where('id', $value)->first();
+            $alternatifterbaikData[$key] = [
+                'id' => $value['id'],
+                'vektorV' => $value['vektorV'],
+                'data' => Alternatif::with('kost')->where('id', $value['id'])->first()
+            ];
         }
-
 
         return view('admin.pages.simulasi-rekomendasi', [
             'alternatifterbaik' => $alternatifterbaikData,
         ]);
     }
 }
+
+  // // ambil id kost nya saja
+        // $alternatifterbaik = [];
+        // foreach ($vektorVsorted as $key => $value) {
+        //     $alternatifterbaik[$key] = $value['id'];
+        // }
+
+        // // ambil data kost nya saja
+        // $alternatifterbaikData = [];
+        // foreach ($alternatifterbaik as $key => $value) {
+        //     $alternatifterbaikData[$key] = Alternatif::with('kost')->where('id', $value)->first();
+        // }

@@ -192,6 +192,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Kost</th>
+                                <th>Vektor V</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -204,6 +205,7 @@
                             <tr>
                                 <td></td>
                                 <td></td>
+                                <td></td>
                             </tr>
 
                             @else
@@ -212,7 +214,8 @@
                             @foreach ($alternatifterbaik as $data )
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $data->kost->name }}</td>
+                                <td>{{ $data['data']->kost->name }}</td>
+                                <td>{{ $data['vektorV'] }}</td>
                             </tr>
                             @endforeach
 
