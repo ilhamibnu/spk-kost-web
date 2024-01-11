@@ -47,6 +47,9 @@ class KostController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'price' => 'required',
+            'alamat' => 'required',
+            'deskripsi' => 'required',
             'id_aksesjalan' => 'required',
             'id_fasilitas' => 'required',
             'id_harga' => 'required',
@@ -54,6 +57,10 @@ class KostController extends Controller
             'id_keamanan' => 'required',
             'id_jarak' => 'required',
         ], [
+            'name.required' => 'Nama kost harus diisi',
+            'price.required' => 'Price harus diisi',
+            'alamat.required' => 'Alamat harus diisi',
+            'deskripsi.required' => 'Deskripsi harus diisi',
             'id_aksesjalan.required' => 'Akses jalan harus diisi',
             'id_fasilitas.required' => 'Fasilitas harus diisi',
             'id_harga.required' => 'Harga harus diisi',
@@ -64,6 +71,9 @@ class KostController extends Controller
 
         $kost = new Kost();
         $kost->name = $request->name;
+        $kost->price = $request->price;
+        $kost->alamat = $request->alamat;
+        $kost->deskripsi = $request->deskripsi;
         $kost->id_aksesjalan = $request->id_aksesjalan;
         $kost->id_fasilitas = $request->id_fasilitas;
         $kost->id_harga = $request->id_harga;
@@ -89,6 +99,9 @@ class KostController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'price' => 'required',
+            'alamat' => 'required',
+            'deskripsi' => 'required',
             'id_aksesjalan' => 'required',
             'id_fasilitas' => 'required',
             'id_harga' => 'required',
@@ -97,6 +110,9 @@ class KostController extends Controller
             'id_jarak' => 'required',
         ], [
             'name.required' => 'Nama kost harus diisi',
+            'price.required' => 'Price harus diisi',
+            'alamat.required' => 'Alamat harus diisi',
+            'deskripsi.required' => 'Deskripsi harus diisi',
             'id_aksesjalan.required' => 'Akses jalan harus diisi',
             'id_fasilitas.required' => 'Fasilitas harus diisi',
             'id_harga.required' => 'Harga harus diisi',
@@ -107,6 +123,9 @@ class KostController extends Controller
 
         $kost = Kost::find($id);
         $kost->name = $request->name;
+        $kost->price = $request->price;
+        $kost->alamat = $request->alamat;
+        $kost->deskripsi = $request->deskripsi;
         $kost->id_aksesjalan = $request->id_aksesjalan;
         $kost->id_fasilitas = $request->id_fasilitas;
         $kost->id_harga = $request->id_harga;

@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('tb_kost', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('price');
+            $table->string('alamat');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

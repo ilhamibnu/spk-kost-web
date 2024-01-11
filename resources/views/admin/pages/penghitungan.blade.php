@@ -63,6 +63,34 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Penghitungan</h4>
+
+                @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show mt-2">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+
+
+                    <?php
+
+                                    $nomer = 1;
+
+                                    ?>
+
+                    @foreach($errors->all() as $error)
+                    <li>{{ $nomer++ }}. {{ $error }}</li>
+                    @endforeach
+                </div>
+                @endif
                 <div class="text-center">
                     <h4 class="card-title">Data Bobot Kepentingan</h4>
                 </div>
@@ -121,6 +149,34 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Penghitungan</h4>
+
+                @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show mt-2">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+
+
+                    <?php
+
+                                    $nomer = 1;
+
+                                    ?>
+
+                    @foreach($errors->all() as $error)
+                    <li>{{ $nomer++ }}. {{ $error }}</li>
+                    @endforeach
+                </div>
+                @endif
                 <div class="text-center">
                     <h4 class="card-title">Data Penghitungan Pangkat</h4>
                 </div>
@@ -170,6 +226,34 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Penghitungan</h4>
+
+                @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show mt-2">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+
+
+                    <?php
+
+                                    $nomer = 1;
+
+                                    ?>
+
+                    @foreach($errors->all() as $error)
+                    <li>{{ $nomer++ }}. {{ $error }}</li>
+                    @endforeach
+                </div>
+                @endif
                 <div class="text-center">
                     <h4 class="card-title">Data Penghitungan Vektor S</h4>
                 </div>
@@ -205,12 +289,37 @@
                                 </td>
                             </tr>
                             @endforeach
-
-
-
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Penghitungan</h4>
+
+                @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show mt-2">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+
+
+                    <?php
+
+                                    $nomer = 1;
+
+                                    ?>
+
+                    @foreach($errors->all() as $error)
+                    <li>{{ $nomer++ }}. {{ $error }}</li>
+                    @endforeach
+                </div>
+                @endif
                 <div class="text-center">
                     <h4 class="card-title">Data Penghitungan Vektor V</h4>
                 </div>
@@ -251,8 +360,6 @@
                                     // hitung nilai vektor v
                                     echo $total_vektor_s / $total_vektor_s_semua_alternatif;
                                     @endphp
-
-
                                 </td>
                             </tr>
                             @endforeach
@@ -263,6 +370,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('script')

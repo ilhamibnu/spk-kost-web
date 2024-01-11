@@ -74,6 +74,21 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Price</label>
+                                                    <li>Rp. {{ number_format($data->price) }}</li>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Alamat</label>
+                                                    <li>{{ $data->alamat }}</li>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Deskripsi</label>
+                                                    <li>{{ $data->deskripsi }}</li>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="recipient-name" class="control-label">Akses Jalan</label>
                                                     <li>{{ $data->aksesjalan->name }}</li>
                                                 </div>
@@ -153,6 +168,21 @@
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="control-label">Name</label>
                                                     <input name="name" value="{{ $data->name }}" type="text" class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Harga</label>
+                                                    <input name="price" value="{{ $data->price }}" type="text" class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Alamat</label>
+                                                    <textarea name="alamat" class="form-control" id="" cols="30" rows="3" required>{{ $data->alamat }}</textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Deskripsi</label>
+                                                    <textarea name="deskripsi" class="form-control" id="" cols="30" rows="3" required>{{ $data->deskripsi }}</textarea>
                                                 </div>
 
                                                 <div class="form-group mb-4">
@@ -248,6 +278,21 @@
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Name</label>
                                         <input name="name" value="" type="text" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Harga</label>
+                                        <input name="price" value="" type="text" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Alamat</label>
+                                        <textarea class="form-control" name="alamat" id="" cols="30" rows="3" required></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Deskripsi</label>
+                                        <textarea class="form-control" name="deskripsi" id="" cols="30" rows="3" required></textarea>
                                     </div>
 
                                     <div class="form-group mb-4">

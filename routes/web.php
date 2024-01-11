@@ -9,6 +9,7 @@ use App\Http\Controllers\JarakController;
 use App\Http\Controllers\KeamananController;
 use App\Http\Controllers\KostController;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\PenghitunganController;
 use App\Http\Controllers\SimulasiRekomendasiController;
@@ -27,10 +28,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+# Landing Controller
+Route::get('/', [LandingController::class, 'index']);
+Route::get('/detail-kost/{id}', [LandingController::class, 'detailkost']);
 
 # Auth Controller
-Route::get('/', [AuthController::class, 'index']);
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');
