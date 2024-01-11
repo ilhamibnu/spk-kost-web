@@ -29,6 +29,8 @@
                                   <a href="index.html">Contact</a>
                               </li>
 
+                              @if(Auth::check())
+
                               <li>
                                   <a href="index.html">User</a>
                                   <ul class="sub-menu">
@@ -36,6 +38,10 @@
                                       <li><a href="home-02.html">My Whitelist</a></li>
                                   </ul>
                               </li>
+                              @else
+
+                              @endif
+
                           </ul>
                       </div>
                       <div class="flex-c-m h-full p-lr-19">
@@ -82,8 +88,6 @@
       <!-- Menu Mobile -->
       <div class="menu-mobile">
           <ul class="main-menu-m">
-
-
               <li>
                   <a href="product.html">Home</a>
               </li>
@@ -96,6 +100,8 @@
                   <a href="contact.html">Contact</a>
               </li>
 
+              @if (Auth::check())
+
               <li>
                   <a href="index.html">User</a>
                   <ul class="sub-menu-m">
@@ -106,6 +112,10 @@
                       <i class="fa fa-angle-right" aria-hidden="true"></i>
                   </span>
               </li>
+
+              @else
+
+              @endif
           </ul>
       </div>
 

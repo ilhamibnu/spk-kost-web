@@ -164,9 +164,17 @@
                             Whatsapp
                         </button>
 
+                        @if(Auth::check())
                         <button class="stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addwish-detail m-2 mt-1">
                             <i class="zmdi zmdi-favorite"></i>
                         </button>
+
+                        @else
+
+
+                        @endif
+
+
 
                     </div>
 

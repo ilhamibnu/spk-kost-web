@@ -40,9 +40,6 @@
     @include('landing.partials.header')
 
 
-    @include('landing.partials.sidebar')
-
-
     @yield('content')
 
 
