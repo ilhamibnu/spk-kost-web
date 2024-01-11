@@ -112,206 +112,137 @@
 
             <!-- Search product -->
             <div class="dis-none panel-search w-full p-t-10 p-b-15">
-                <div class="bor8 dis-flex p-l-15">
-                    <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                {{-- <div class="bor8 dis-flex p-l-15"> --}}
+                <form class="bor8 dis-flex p-l-15" action="/cari" method="post">
+                    @csrf
+                    <button name="submit" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                         <i class="zmdi zmdi-search"></i>
                     </button>
 
-                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
-                </div>
+                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="cari" placeholder="Search">
+                </form>
+                {{-- </div> --}}
             </div>
 
             <!-- Filter -->
             <div class="dis-none panel-filter w-full p-t-10">
-                <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-                    <div class="filter-col1 p-r-15 p-b-27">
-                        <div class="mtext-102 cl2 p-b-15">
-                            Sort By
+                <div class="justify-content-center wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
+                    <form class="justify-content-center wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm" action="/filter" method="POST">
+                        @csrf
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Jarak
+                            </div>
+                            <div class="form-group">
+                                <select name="kepentingan_jarak" class="form-control" id="exampleFormControlSelect1">
+                                    <option selected disabled value="0">Pilih Jarak</option>
+                                    <option value="1">Tidak Penting</option>
+                                    <option value="2">Kurang Penting</option>
+                                    <option value="3">Cukup Penting</option>
+                                    <option value="4">Penting</option>
+                                    <option value="5">Sangat Penting</option>
+                                </select>
+                            </div>
                         </div>
-
-                        <ul>
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Default
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Popularity
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Average rating
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-                                    Newness
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Price: Low to High
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Price: High to Low
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="filter-col2 p-r-15 p-b-27">
-                        <div class="mtext-102 cl2 p-b-15">
-                            Price
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Fasilitas
+                            </div>
+                            <div class="form-group">
+                                <select name="kepentingan_fasilitas" class="form-control" id="exampleFormControlSelect1">
+                                    <option selected disabled value="0">Pilih Fasilitas</option>
+                                    <option value="1">Tidak Penting</option>
+                                    <option value="2">Kurang Penting</option>
+                                    <option value="3">Cukup Penting</option>
+                                    <option value="4">Penting</option>
+                                    <option value="5">Sangat Penting</option>
+                                </select>
+                            </div>
                         </div>
-
-                        <ul>
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-                                    All
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    $0.00 - $50.00
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    $50.00 - $100.00
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    $100.00 - $150.00
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    $150.00 - $200.00
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    $200.00+
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="filter-col3 p-r-15 p-b-27">
-                        <div class="mtext-102 cl2 p-b-15">
-                            Color
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Harga
+                            </div>
+                            <div class="form-group">
+                                <select name="kepentingan_harga" class="form-control" id="exampleFormControlSelect1">
+                                    <option selected disabled value="0">Pilih Harga</option>
+                                    <option value="1">Tidak Penting</option>
+                                    <option value="2">Kurang Penting</option>
+                                    <option value="3">Cukup Penting</option>
+                                    <option value="4">Penting</option>
+                                    <option value="5">Sangat Penting</option>
+                                </select>
+                            </div>
                         </div>
-
-                        <ul>
-                            <li class="p-b-6">
-                                <span class="fs-15 lh-12 m-r-6" style="color: #222;">
-                                    <i class="zmdi zmdi-circle"></i>
-                                </span>
-
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Black
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <span class="fs-15 lh-12 m-r-6" style="color: #4272d7;">
-                                    <i class="zmdi zmdi-circle"></i>
-                                </span>
-
-                                <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-                                    Blue
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <span class="fs-15 lh-12 m-r-6" style="color: #b3b3b3;">
-                                    <i class="zmdi zmdi-circle"></i>
-                                </span>
-
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Grey
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <span class="fs-15 lh-12 m-r-6" style="color: #00ad5f;">
-                                    <i class="zmdi zmdi-circle"></i>
-                                </span>
-
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Green
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <span class="fs-15 lh-12 m-r-6" style="color: #fa4251;">
-                                    <i class="zmdi zmdi-circle"></i>
-                                </span>
-
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Red
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <span class="fs-15 lh-12 m-r-6" style="color: #aaa;">
-                                    <i class="zmdi zmdi-circle-o"></i>
-                                </span>
-
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    White
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="filter-col4 p-b-27">
-                        <div class="mtext-102 cl2 p-b-15">
-                            Tags
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Lokasi
+                            </div>
+                            <div class="form-group">
+                                <select name="kepentingn_lokasi" class="form-control" id="exampleFormControlSelect1">
+                                    <option selected disabled value="0">Pilih Lokasi</option>
+                                    <option value="1">Tidak Penting</option>
+                                    <option value="2">Kurang Penting</option>
+                                    <option value="3">Cukup Penting</option>
+                                    <option value="4">Penting</option>
+                                    <option value="5">Sangat Penting</option>
+                                </select>
+                            </div>
                         </div>
-
-                        <div class="flex-w p-t-4 m-r--5">
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Fashion
-                            </a>
-
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Lifestyle
-                            </a>
-
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Denim
-                            </a>
-
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Streetstyle
-                            </a>
-
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Crafts
-                            </a>
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Keamanan
+                            </div>
+                            <div class="form-group">
+                                <select name="kepentingan_keamanan" class="form-control" id="exampleFormControlSelect1">
+                                    <option selected disabled value="0">Pilih Keamanan</option>
+                                    <option value="1">Tidak Penting</option>
+                                    <option value="2">Kurang Penting</option>
+                                    <option value="3">Cukup Penting</option>
+                                    <option value="4">Penting</option>
+                                    <option value="5">Sangat Penting</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Akses Jalan
+                            </div>
+                            <div class="form-group">
+                                <select name="kepentingan_aksesjalan" class="form-control" id="exampleFormControlSelect1">
+                                    <option selected disabled value="0">Pilih Akses Jalan</option>
+                                    <option value="1">Tidak Penting</option>
+                                    <option value="2">Kurang Penting</option>
+                                    <option value="3">Cukup Penting</option>
+                                    <option value="4">Penting</option>
+                                    <option value="5">Sangat Penting</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="justify-content-center text-center">
+                                <button type="submit" class="stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">Filter</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
 
         <div class="row isotope-grid">
+
+            @if($alternatifterbaik == null)
+
+            @if($kost->count() == 0)
+
+            <div class="tab01">
+                <div class="text-center">
+                    <p>Data ditidak ditemukan</p>
+                </div>
+
+            </div>
+
+            @else
 
             @foreach ($kost as $data )
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
@@ -355,6 +286,61 @@
             </div>
 
             @endforeach
+
+            @endif
+
+
+
+            @else
+
+            @foreach ($alternatifterbaik as $data )
+
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+                <!-- Block2 -->
+                <div class="block2">
+                    <div class="block2-pic hov-img0">
+                        <img src="{{ asset('landing/images/product-01.jpg') }}" alt="IMG-PRODUCT">
+
+                        <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                            Detail
+                        </a>
+                    </div>
+
+                    <div class="block2-txt flex-w flex-t p-t-14">
+                        <div class="block2-txt-child1 flex-col-l ">
+                            <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" target="blank" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                {{ $data['data']->kost->name }}
+                            </a>
+
+                            <span class="stext-105 cl3">
+                                Rp. {{ number_format($data['data']->kost->price) }}
+                            </span>
+                        </div>
+
+                        @if(Auth::check())
+
+
+                        <div class="block2-txt-child2 flex-r p-t-3">
+                            <a href="" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                <img class="icon-heart1 dis-block trans-04" src="{{ asset('landing/images/icons/icon-heart-01.png') }}" alt="ICON">
+                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('landing/images/icons/icon-heart-02.png') }}" alt="ICON">
+                            </a>
+                        </div>
+
+                        @else
+
+                        @endif
+
+                    </div>
+                </div>
+            </div>
+
+            @endforeach
+
+
+            @endif
+
+
         </div>
     </div>
 </section>

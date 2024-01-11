@@ -147,15 +147,3 @@ class SimulasiRekomendasiController extends Controller
         ]);
     }
 }
-
-  // // ambil id kost nya saja
-        // $alternatifterbaik = [];
-        // foreach ($vektorVsorted as $key => $value) {
-        //     $alternatifterbaik[$key] = $value['id'];
-        // }
-
-        // // ambil data kost nya saja
-        // $alternatifterbaikData = [];
-        // foreach ($alternatifterbaik as $key => $value) {
-        //     $alternatifterbaikData[$key] = Alternatif::with('kost')->where('id', $value)->first();
-        // }

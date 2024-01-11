@@ -6,7 +6,7 @@
               <nav class="limiter-menu-desktop p-l-45">
 
                   <!-- Logo desktop -->
-                  <a href="#" class="logo">
+                  <a href="/" class="logo">
                       <img src="{{ asset('landing/images/icons/logo-02.png') }}" alt="IMG-LOGO">
                   </a>
 

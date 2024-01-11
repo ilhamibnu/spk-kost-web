@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Route;
 
 # Landing Controller
 Route::get('/', [LandingController::class, 'index']);
+Route::post('/filter', [LandingController::class, 'filter']);
+Route::post('/cari', [LandingController::class, 'cari']);
 Route::get('/detail-kost/{id}', [LandingController::class, 'detailkost']);
 
 # Auth Controller
