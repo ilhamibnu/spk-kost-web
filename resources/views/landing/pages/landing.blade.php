@@ -113,13 +113,11 @@
             <!-- Search product -->
             <div class="dis-none panel-search w-full p-t-10 p-b-15">
                 {{-- <div class="bor8 dis-flex p-l-15"> --}}
-                <form class="bor8 dis-flex p-l-15" action="/cari" method="post">
-                    @csrf
-                    <button name="submit" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                <form class="bor8 dis-flex p-l-15" action="" method="get">
+                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="cari" placeholder="Search">
+                    <button type="submit" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                         <i class="zmdi zmdi-search"></i>
                     </button>
-
-                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="cari" placeholder="Search">
                 </form>
                 {{-- </div> --}}
             </div>
@@ -127,15 +125,14 @@
             <!-- Filter -->
             <div class="dis-none panel-filter w-full p-t-10">
                 <div class="justify-content-center wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-                    <form class="justify-content-center wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm" action="/filter" method="POST">
-                        @csrf
+                    <form class="justify-content-center wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm" action="" method="get">
                         <div class="filter-col1 p-r-15 p-b-27">
                             <div class="mtext-102 cl2 p-b-15">
                                 Jarak
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_jarak" class="form-control" id="exampleFormControlSelect1">
-                                    <option selected disabled value="0">Pilih Jarak</option>
+                                    <option selected value="0">Pilih Jarak</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
@@ -150,7 +147,7 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_fasilitas" class="form-control" id="exampleFormControlSelect1">
-                                    <option selected disabled value="0">Pilih Fasilitas</option>
+                                    <option selected value="0">Pilih Fasilitas</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
@@ -165,7 +162,7 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_harga" class="form-control" id="exampleFormControlSelect1">
-                                    <option selected disabled value="0">Pilih Harga</option>
+                                    <option selected value="0">Pilih Harga</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
@@ -179,8 +176,8 @@
                                 Lokasi
                             </div>
                             <div class="form-group">
-                                <select name="kepentingn_lokasi" class="form-control" id="exampleFormControlSelect1">
-                                    <option selected disabled value="0">Pilih Lokasi</option>
+                                <select name="kepentingan_lokasi" class="form-control" id="exampleFormControlSelect1">
+                                    <option selected value="0">Pilih Lokasi</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
@@ -195,7 +192,7 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_keamanan" class="form-control" id="exampleFormControlSelect1">
-                                    <option selected disabled value="0">Pilih Keamanan</option>
+                                    <option selected="0">Pilih Keamanan</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
@@ -210,7 +207,7 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_aksesjalan" class="form-control" id="exampleFormControlSelect1">
-                                    <option selected disabled value="0">Pilih Akses Jalan</option>
+                                    <option selected value="0">Pilih Akses Jalan</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
@@ -221,127 +218,67 @@
                         </div>
                         <div class="filter-col1 p-r-15 p-b-27">
                             <div class="justify-content-center text-center">
-                                <button type="submit" class="stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">Filter</button>
+                                <button class="stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">Filter</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-        <div class="row isotope-grid">
-
-            @if($alternatifterbaik == null)
-
-            @if($kost->count() == 0)
-
-            <div class="tab01">
-                <div class="text-center">
-                    <p>Data ditidak ditemukan</p>
-                </div>
-
+        <div id="test">
+            <div class="row">
+                @include('landing.data.landing')
             </div>
-
-            @else
-
-            @foreach ($kost as $data )
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="{{ asset('landing/images/product-01.jpg') }}" alt="IMG-PRODUCT">
-
-                        <a href="/detail-kost/{{ $data->id }}/#detail-kost" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-                            Detail
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="/detail-kost/{{ $data->id }}/#detail-kost" target="blank" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                {{ $data->name }}
-                            </a>
-
-                            <span class="stext-105 cl3">
-                                Rp. {{ number_format($data->price) }}
-                            </span>
-                        </div>
-
-                        @if(Auth::check())
-
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="{{ asset('landing/images/icons/icon-heart-01.png') }}" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('landing/images/icons/icon-heart-02.png') }}" alt="ICON">
-                            </a>
-                        </div>
-
-                        @else
-
-                        @endif
-
-                    </div>
-                </div>
-            </div>
-
-            @endforeach
-
-            @endif
-
-
-
-            @else
-
-            @foreach ($alternatifterbaik as $data )
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-pic hov-img0">
-                        <img src="{{ asset('landing/images/product-01.jpg') }}" alt="IMG-PRODUCT">
-
-                        <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-                            Detail
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" target="blank" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                {{ $data['data']->kost->name }}
-                            </a>
-
-                            <span class="stext-105 cl3">
-                                Rp. {{ number_format($data['data']->kost->price) }}
-                            </span>
-                        </div>
-
-                        @if(Auth::check())
-
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                <img class="icon-heart1 dis-block trans-04" src="{{ asset('landing/images/icons/icon-heart-01.png') }}" alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('landing/images/icons/icon-heart-02.png') }}" alt="ICON">
-                            </a>
-                        </div>
-
-                        @else
-
-                        @endif
-
-                    </div>
-                </div>
-            </div>
-
-            @endforeach
-
-
-            @endif
-
-
         </div>
     </div>
 </section>
+@endsection
+
+@section('script')
+
+<script>
+    var page = 1;
+
+    @if($cari == "filter")
+    var ENDPOINT = '/?kepentingan_jarak=' + encodeURIComponent("{{ $kepentingan_jarak }}") +
+        '&kepentingan_fasilitas=' + encodeURIComponent("{{ $kepentingan_fasilitas }}") +
+        '&kepentingan_harga=' + encodeURIComponent("{{ $kepentingan_harga }}") +
+        '&kepentingan_lokasi=' + encodeURIComponent("{{ $kepentingan_lokasi }}") +
+        '&kepentingan_keamanan=' + encodeURIComponent("{{ $kepentingan_keamanan }}") +
+        '&kepentingan_aksesjalan=' + encodeURIComponent("{{ $kepentingan_aksesjalan }}");
+
+    @else
+    var ENDPOINT = '/?cari=' + encodeURIComponent("{{ $cari }}")
+    @endif
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            page++;
+            loadMoreData(page);
+        }
+    });
+
+    function loadMoreData(page) {
+        $.ajax({
+                url: ENDPOINT + '&page=' + page // Perhatikan penggunaan "&" sebagai pemisah parameter.
+                , type: "get"
+                , beforeSend: function() {
+                    $('.ajax-load').show();
+                }
+            })
+            .done(function(data) {
+                if (data.html == "") {
+                    $('.ajax-load').html("No more records found");
+                    return;
+                }
+                $('.ajax-load').hide();
+                $("#test").append('<div class="row">' + data.html + '</div>');
+            })
+            .fail(function(jqXHR, ajaxOptions, thrownError) {
+                alert('server not responding...');
+            });
+    }
+
+</script>
+
 @endsection
