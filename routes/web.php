@@ -31,9 +31,9 @@ use Illuminate\Support\Facades\Route;
 # Landing Controller
 Route::get('/', [LandingController::class, 'index']);
 Route::get('/detail-kost/{id}', [LandingController::class, 'detailkost']);
-Route::get('/whitelist', [LandingController::class, 'whitelist']);
-Route::post('/simpanwhitelist', [LandingController::class, 'simpanwhitelist']);
-Route::post('/deletewhitelist', [LandingController::class, 'deletewhitelist']);
+Route::get('/whitelist', [LandingController::class, 'whitelist'])->middleware('IsLogin', 'IsUser');
+Route::post('/simpanwhitelist', [LandingController::class, 'simpanwhitelist'])->middleware('IsLogin', 'IsUser');
+Route::post('/deletewhitelist', [LandingController::class, 'deletewhitelist'])->middleware('IsLogin', 'IsUser');
 
 
 
@@ -42,8 +42,13 @@ Route::post('/deletewhitelist', [LandingController::class, 'deletewhitelist']);
 Route::get('/loginuser', [AuthController::class, 'loginuser']);
 Route::get('/registeruser', [AuthController::class, 'registeruser']);
 Route::post('/register', [AuthController::class, 'register']);
-Route::get('/myprofil', [AuthController::class, 'myprofil']);
-Route::post('/updateprofil', [AuthController::class, 'updateprofil']);
+Route::get('/myprofil', [AuthController::class, 'myprofil'])->middleware('IsLogin', 'IsUser');
+Route::post('/updateprofil', [AuthController::class, 'updateprofil'])->middleware('IsLogin', 'IsUser');
+Route::get('/resetpassword', [AuthController::class, 'resetpasswordindex']);
+Route::post('/resetpassword', [AuthController::class, 'resetpassword']);
+
+route::get('/changepassword/{id}', [AuthController::class, 'changepassword']);
+route::post('/updatepassword', [AuthController::class, 'updatepassword']);
 
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);

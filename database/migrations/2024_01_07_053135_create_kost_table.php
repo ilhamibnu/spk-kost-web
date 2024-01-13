@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('price');
-            $table->string('alamat');
-            $table->string('deskripsi');
+            $table->longText('alamat');
+            $table->longText('deskripsi');
+            $table->string('no_pemilik');
+            $table->string('foto');
             $table->timestamps();
         });
     }
