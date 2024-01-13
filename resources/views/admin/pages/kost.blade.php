@@ -35,6 +35,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Foto</th>
                                 <th>Name</th>
                                 <th>Action</th>
                             </tr>
@@ -46,6 +47,7 @@
                             @foreach($kost as $data)
                             <tr>
                                 <td>{{ $no++ }}</td>
+                                <td><img src="{{ asset('fotokost/'.$data->foto) }}" alt="" class="img-rounded" width="100px"></td>
                                 <td>{{ $data->name }}</td>
                                 <td>
                                     <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#detail{{ $data->id }}"><i class="fas fa-eye"></i></button>
@@ -81,6 +83,11 @@
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="control-label">Alamat</label>
                                                     <li>{{ $data->alamat }}</li>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">No Pemilik</label>
+                                                    <li>{{ $data->no_pemilik }}</li>
                                                 </div>
 
                                                 <div class="form-group">
@@ -183,6 +190,26 @@
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="control-label">Deskripsi</label>
                                                     <textarea name="deskripsi" class="form-control" id="" cols="30" rows="3" required>{{ $data->deskripsi }}</textarea>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">No Pemilik</label>
+                                                    <input name="no_pemilik" value="{{ $data->no_pemilik }}" type="text" class="form-control" required>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Foto</label>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Upload</span>
+                                                        </div>
+                                                        <div class="custom-file">
+                                                            <input name="foto" type="file" class="custom-file-input" id="inputGroupFile01">
+                                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="form-group mb-4">
@@ -293,6 +320,25 @@
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Deskripsi</label>
                                         <textarea class="form-control" name="deskripsi" id="" cols="30" rows="3" required></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">No Pemilik</label>
+                                        <input name="no_pemilik" value="" type="text" class="form-control" required>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Foto</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input name="foto" type="file" class="custom-file-input" id="inputGroupFile01">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group mb-4">

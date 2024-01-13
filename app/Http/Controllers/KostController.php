@@ -50,6 +50,8 @@ class KostController extends Controller
             'price' => 'required',
             'alamat' => 'required',
             'deskripsi' => 'required',
+            'no_pemilik' => 'required',
+            'foto' => 'required',
             'id_aksesjalan' => 'required',
             'id_fasilitas' => 'required',
             'id_harga' => 'required',
@@ -61,6 +63,8 @@ class KostController extends Controller
             'price.required' => 'Price harus diisi',
             'alamat.required' => 'Alamat harus diisi',
             'deskripsi.required' => 'Deskripsi harus diisi',
+            'no_pemilik.required' => 'No pemilik harus diisi',
+            'foto.required' => 'Foto harus diisi',
             'id_aksesjalan.required' => 'Akses jalan harus diisi',
             'id_fasilitas.required' => 'Fasilitas harus diisi',
             'id_harga.required' => 'Harga harus diisi',
@@ -74,6 +78,14 @@ class KostController extends Controller
         $kost->price = $request->price;
         $kost->alamat = $request->alamat;
         $kost->deskripsi = $request->deskripsi;
+        $kost->no_pemilik = $request->no_pemilik;
+
+        $file = $request->file('foto');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        // simpan foto ke folder public/fotokost
+        $file->move('fotokost', $filename);
+        $kost->foto = $filename;
+
         $kost->id_aksesjalan = $request->id_aksesjalan;
         $kost->id_fasilitas = $request->id_fasilitas;
         $kost->id_harga = $request->id_harga;
@@ -102,6 +114,7 @@ class KostController extends Controller
             'price' => 'required',
             'alamat' => 'required',
             'deskripsi' => 'required',
+            'no_pemilik' => 'required',
             'id_aksesjalan' => 'required',
             'id_fasilitas' => 'required',
             'id_harga' => 'required',
@@ -113,6 +126,7 @@ class KostController extends Controller
             'price.required' => 'Price harus diisi',
             'alamat.required' => 'Alamat harus diisi',
             'deskripsi.required' => 'Deskripsi harus diisi',
+            'no_pemilik.required' => 'No pemilik harus diisi',
             'id_aksesjalan.required' => 'Akses jalan harus diisi',
             'id_fasilitas.required' => 'Fasilitas harus diisi',
             'id_harga.required' => 'Harga harus diisi',
@@ -126,6 +140,19 @@ class KostController extends Controller
         $kost->price = $request->price;
         $kost->alamat = $request->alamat;
         $kost->deskripsi = $request->deskripsi;
+        $kost->no_pemilik = $request->no_pemilik;
+
+        if ($request->hasFile('foto')) {
+            // hapus foto lama
+            unlink('fotokost/' . $kost->foto);
+            // upload foto baru
+            $file = $request->file('foto');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            // simpan foto ke folder public/fotokost
+            $file->move('fotokost', $filename);
+            $kost->foto = $filename;
+        }
+
         $kost->id_aksesjalan = $request->id_aksesjalan;
         $kost->id_fasilitas = $request->id_fasilitas;
         $kost->id_harga = $request->id_harga;
@@ -152,6 +179,9 @@ class KostController extends Controller
         $alternatif->delete();
 
         $kost = Kost::find($id);
+        // hapus foto
+        unlink('fotokost/' . $kost->foto);
+        // hapus data
         $kost->delete();
 
         return redirect()->back()->with('destroy', 'Data berhasil dihapus');

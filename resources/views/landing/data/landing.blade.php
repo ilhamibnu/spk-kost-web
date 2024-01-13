@@ -34,7 +34,7 @@
 
                     @endif
 
-                    <img src=" {{ asset('landing/images/product-01.jpg') }}" alt="IMG-PRODUCT">
+                    <img src="{{ asset('fotokost/' . $data->foto) }}" alt="IMG-PRODUCT">
 
                     <a href="/detail-kost/{{ $data->id }}/#detail-kost" target="blank" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                         Detail
@@ -88,7 +88,7 @@
                             @endif
 
 
-                            <img src="{{ asset('landing/images/product-01.jpg') }}" alt="IMG-PRODUCT">
+                            <img src="{{ asset('fotokost/' . $data['data']->kost->foto) }}" alt="IMG-PRODUCT">
 
                             <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" target="blank" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                 Detail
