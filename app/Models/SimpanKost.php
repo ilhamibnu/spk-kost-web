@@ -9,7 +9,7 @@ class SimpanKost extends Model
 {
     use HasFactory;
 
-    protected $table = 'tb_simpankost';
+    protected $table = 'tb_simpan_kost';
 
     protected $fillable = [
         'id_user',

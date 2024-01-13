@@ -8,72 +8,72 @@
 <section class="section-slide">
     <div class="wrap-slick1 rs2-slick1">
         <div class="slick1">
-            <div class="item-slick1 bg-overlay1" style="background-image: url({{ asset('landing/images/slide-05.jpg') }});" data-thumb="{{ asset('landing/images/thumb-01.jpg') }}" data-caption="Women’s Wear">
+            <div class="item-slick1 bg-overlay1" style="background-image: url({{ asset('landing/images/ekost-1.jpg') }});" data-thumb="{{ asset('landing/images/ekost-1.jpg') }}" data-caption="e-Kostan">
                 <div class="container h-full">
                     <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
                             <span class="ltext-202 txt-center cl0 respon2">
-                                Women Collection 2018
+                                Rekomendasi Kost Terbaik
                             </span>
                         </div>
 
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
                             <h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
-                                New arrivals
+                                e-Kostan
                             </h2>
                         </div>
 
-                        <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                            <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                                Shop Now
+                        <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
+                            <a href="/#product" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                                Cari Sekarang
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="item-slick1 bg-overlay1" style="background-image: url({{ asset('landing/images/slide-06.jpg') }});" data-thumb="{{ asset('landing/images/thumb-02.jpg') }}" data-caption="Men’s Wear">
+            <div class="item-slick1 bg-overlay1" style="background-image: url({{ asset('landing/images/ekost-2.jpg') }});" data-thumb="{{ asset('landing/images/ekost-2.jpg') }}" data-caption="e-Kostan">
                 <div class="container h-full">
                     <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                         <div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
                             <span class="ltext-202 txt-center cl0 respon2">
-                                Men New-Season
+                                Rekomendasi Kost Terbaik
                             </span>
                         </div>
 
                         <div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
                             <h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
-                                Jackets & Coats
+                                e-Kostan
                             </h2>
                         </div>
 
                         <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
-                            <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                                Shop Now
+                            <a href="/#product" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                                Cari Sekarang
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="item-slick1 bg-overlay1" style="background-image: url({{ asset('landing/images/slide-07.jpg') }});" data-thumb="{{ asset('landing/images/thumb-03.jpg') }}" data-caption="Men’s Wear">
+            <div class="item-slick1 bg-overlay1" style="background-image: url({{ asset('landing/images/ekost-3.jpg') }});" data-thumb="{{ asset('landing/images/ekost-3.jpg') }}" data-caption="e-Kostan">
                 <div class="container h-full">
                     <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                         <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
                             <span class="ltext-202 txt-center cl0 respon2">
-                                Men Collection 2018
+                                Rekomendasi Kost Terbaik
                             </span>
                         </div>
 
                         <div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
                             <h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
-                                NEW SEASON
+                                e-Kostan
                             </h2>
                         </div>
 
-                        <div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
-                            <a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                                Shop Now
+                        <div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
+                            <a href="/#product" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                                Cari Sekarang
                             </a>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
 </section>
 
 <!-- Product -->
-<section class="bg0 p-t-23 p-b-130">
+<section id="product" class="bg0 p-t-23 p-b-130">
     <div class="container">
         <div class="p-b-10">
             <h3 class="ltext-103 cl5">
@@ -124,8 +124,8 @@
 
             <!-- Filter -->
             <div class="dis-none panel-filter w-full p-t-10">
-                <div class="justify-content-center wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-                    <form class="justify-content-center wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm" action="" method="get">
+                <div class="justify-content-center wrap-filter flex-w bg0 w-full p-lr-40 p-t-27 p-lr-15-sm">
+                    <form class="justify-content-center wrap-filter flex-w bg0 w-full p-lr-40 p-t-27 p-lr-15-sm" action="" method="get">
                         <div class="filter-col1 p-r-15 p-b-27">
                             <div class="mtext-102 cl2 p-b-15">
                                 Jarak
@@ -218,7 +218,7 @@
                         </div>
                         <div class="filter-col1 p-r-15 p-b-27">
                             <div class="justify-content-center text-center">
-                                <button class="stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">Filter</button>
+                                <button class="stext-103 cl2 size-102 bg0 bor4 hov-btn1 p-lr-15 trans-04">Filter</button>
                             </div>
                         </div>
                     </form>
@@ -280,5 +280,30 @@
     }
 
 </script>
+
+@if(Session::get('logout'))
+<script>
+    swal({
+        title: "Berhasil Logout"
+        , text: "Anda telah berhasil logout"
+        , icon: "success"
+        , button: "OK"
+    , });
+
+</script>
+@endif
+
+@if(Session::get('login'))
+<script>
+    swal({
+        title: "Berhasil Login"
+        , text: "Anda telah berhasil login"
+        , icon: "success"
+        , button: "OK"
+    , });
+
+</script>
+@endif
+
 
 @endsection

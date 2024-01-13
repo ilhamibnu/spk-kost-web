@@ -31,8 +31,20 @@ use Illuminate\Support\Facades\Route;
 # Landing Controller
 Route::get('/', [LandingController::class, 'index']);
 Route::get('/detail-kost/{id}', [LandingController::class, 'detailkost']);
+Route::get('/whitelist', [LandingController::class, 'whitelist']);
+Route::post('/simpanwhitelist', [LandingController::class, 'simpanwhitelist']);
+Route::post('/deletewhitelist', [LandingController::class, 'deletewhitelist']);
+
+
+
 
 # Auth Controller
+Route::get('/loginuser', [AuthController::class, 'loginuser']);
+Route::get('/registeruser', [AuthController::class, 'registeruser']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/myprofil', [AuthController::class, 'myprofil']);
+Route::post('/updateprofil', [AuthController::class, 'updateprofil']);
+
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');

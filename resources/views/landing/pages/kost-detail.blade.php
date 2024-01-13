@@ -164,10 +164,35 @@
                             Whatsapp
                         </button>
 
-                        @if(Auth::check())
-                        <button class="stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addwish-detail m-2 mt-1">
-                            <i class="zmdi zmdi-favorite"></i>
-                        </button>
+                        @if(Auth::check() != null)
+
+                        @php
+                        $cek = \App\Models\SimpanKost::where('id_user', Auth::user()->id)->where('id_kost', $kost->id)->first();
+                        @endphp
+
+                        @if($cek == null)
+
+                        <form action="/simpanwhitelist" method="post">
+                            @csrf
+                            <input hidden name="id_kost" value="{{ $kost->id }}">
+                            <input hidden name="id_user" value="{{ Auth::user()->id }}">
+                            <button class="stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1">
+                                <i class="zmdi zmdi-favorite"></i>
+                            </button>
+                        </form>
+
+                        @else
+                        <form action="/deletewhitelist" method="post">
+                            @csrf
+                            <input hidden name="id_kost" value="{{ $kost->id }}">
+                            <input hidden name="id_user" value="{{ Auth::user()->id }}">
+                            <button class="stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
+                        </form>
+                        @endif
+
+
 
                         @else
 
@@ -310,5 +335,33 @@
         </div>
     </div>
 </section>
+
+@endsection
+
+@section('script')
+
+@if(Session::get('simpanwhitelist'))
+<script>
+    swal({
+        title: "Berhasil"
+        , text: "Berhasil menyimpan kost ke daftar favorit"
+        , icon: "success"
+        , button: "OK"
+    , });
+
+</script>
+@endif
+
+@if(Session::get('deletewhitelist'))
+<script>
+    swal({
+        title: "Berhasil"
+        , text: "Berhasil menghapus kost dari daftar favorit"
+        , icon: "success"
+        , button: "OK"
+    , });
+
+</script>
+@endif
 
 @endsection

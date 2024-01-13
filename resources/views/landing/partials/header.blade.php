@@ -17,7 +17,7 @@
                       <!-- Menu desktop -->
                       <div class="menu-desktop">
                           <ul class="main-menu">
-                              <li>
+                              {{-- <li>
                                   <a href="index.html">Home</a>
                               </li>
 
@@ -27,18 +27,23 @@
 
                               <li>
                                   <a href="index.html">Contact</a>
-                              </li>
+                              </li> --}}
 
                               @if(Auth::check())
 
                               <li>
-                                  <a href="index.html">User</a>
+                                  <a href="index.html">{{ Auth::user()->name }}</a>
                                   <ul class="sub-menu">
-                                      <li><a href="index.html">My Profil</a></li>
-                                      <li><a href="home-02.html">My Whitelist</a></li>
+                                      <li><a href="/myprofil/#myprofil">My Profil</a></li>
+                                      <li><a href="/whitelist/#whitelist">My Whitelist</a></li>
+                                      <li><a href="/logout">Logout</a></li>
                                   </ul>
                               </li>
                               @else
+
+                              <li>
+                                  <a href="/loginuser/#login">Login</a>
+                              </li>
 
                               @endif
 
@@ -73,7 +78,7 @@
       <div class="wrap-header-mobile">
           <!-- Logo moblie -->
           <div class="logo-mobile">
-              <a href="index.html"><img src="{{ asset('landing/images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
+              <a href="/"><img src="{{ asset('landing/images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
           </div>
 
           <!-- Button show menu -->
@@ -88,7 +93,7 @@
       <!-- Menu Mobile -->
       <div class="menu-mobile">
           <ul class="main-menu-m">
-              <li>
+              {{-- <li>
                   <a href="product.html">Home</a>
               </li>
 
@@ -98,15 +103,16 @@
 
               <li>
                   <a href="contact.html">Contact</a>
-              </li>
+              </li> --}}
 
               @if (Auth::check())
 
               <li>
-                  <a href="index.html">User</a>
+                  <a href="index.html">{{ Auth::user()->name }}</a>
                   <ul class="sub-menu-m">
-                      <li><a href="index.html">My Profile</a></li>
-                      <li><a href="home-02.html">My Whitelist</a></li>
+                      <li><a href="/myprofil/#myprofil">My Profile</a></li>
+                      <li><a href="/whitelist/#whitelist">My Whitelist</a></li>
+                      <li><a href="/logout">Logout</a></li>
                   </ul>
                   <span class="arrow-main-menu-m">
                       <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -114,7 +120,9 @@
               </li>
 
               @else
-
+              <li>
+                  <a href="/loginuser/#login">Login</a>
+              </li>
               @endif
           </ul>
       </div>
