@@ -7,7 +7,7 @@
 
                   <!-- Logo desktop -->
                   <a href="/" class="logo">
-                      <img src="{{ asset('landing/images/icons/logo-02.png') }}" alt="IMG-LOGO">
+                      <img src="{{ asset('landing/images/icons/e-kost.png') }}" alt="IMG-LOGO">
                   </a>
 
 
@@ -78,7 +78,7 @@
       <div class="wrap-header-mobile">
           <!-- Logo moblie -->
           <div class="logo-mobile">
-              <a href="/"><img src="{{ asset('landing/images/icons/logo-01.png') }}" alt="IMG-LOGO"></a>
+              <a href="/"><img src="{{ asset('landing/images/icons/e-kost.png') }}" alt="IMG-LOGO"></a>
           </div>
 
           <!-- Button show menu -->

@@ -44,6 +44,10 @@
                     </button>
 
                 </form>
+                <div class="text-center mt-3">
+                    <p>Dont have a account ? <a href="/registeruser/#register">Register</a></p>
+                    <p>Already have a account ? <a href="/loginuser/#login">Login</a></p>
+                </div>
             </div>
         </div>
     </div>

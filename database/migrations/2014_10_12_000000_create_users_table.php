@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('code')->nullable();
             $table->string('status_code')->nullable();
+            $table->string('type')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

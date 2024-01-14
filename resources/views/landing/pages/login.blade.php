@@ -46,10 +46,20 @@
                     </button>
 
                 </form>
+                <div class="text-center mt-3 ">
+                    <p>Or</p>
+                    <button class="btn">
+                        <a href="/auth/google"><span class="css-bwxjrz"><img width="35px" height="35px" src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.529/google-logo.5867462c.svg" alt=""></span></a>
+                        <span>Google</span>
+                    </button>
+
+                </div>
                 <div class="text-center mt-3">
                     <p>Dont have a account ? <a href="/registeruser/#register">Register</a></p>
                     <p>Forgot your password ? <a href="/resetpassword/#reset">Reset Password</a></p>
                 </div>
+
+
             </div>
         </div>
     </div>

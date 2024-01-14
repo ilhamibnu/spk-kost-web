@@ -83,7 +83,7 @@
                     <a href=""></a>
                 </button> --}}
 
-                <a class="btn stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1" href="https://wa.me/{{ $kost->no_pemilik }}" target="blank">Whatsapp</a>
+                <a class="btn stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1" href="https://wa.me/{{ $kost->no_pemilik }}" target="_blank">Whatsapp</a>
 
                 @if(Auth::check() != null)
 

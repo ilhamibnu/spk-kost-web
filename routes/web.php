@@ -47,6 +47,9 @@ Route::post('/updateprofil', [AuthController::class, 'updateprofil'])->middlewar
 Route::get('/resetpassword', [AuthController::class, 'resetpasswordindex']);
 Route::post('/resetpassword', [AuthController::class, 'resetpassword']);
 
+Route::get('/auth/google', [AuthController::class, 'redirect']);
+Route::get('/auth/google/callback', [AuthController::class, 'GoogleCallback']);
+
 route::get('/changepassword/{id}', [AuthController::class, 'changepassword']);
 route::post('/updatepassword', [AuthController::class, 'updatepassword']);
 

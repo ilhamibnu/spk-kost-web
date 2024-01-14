@@ -30,6 +30,27 @@
                         My Profil
                     </h4>
 
+                    @if(Auth::user()->type == 'google')
+
+                    <input hidden value="{{ Auth::user()->id }}" type="text">
+
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="text" name="name" value="{{ Auth::user()->name }}" placeholder="Your Full Name">
+                    </div>
+
+                    <div hidden class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="text" name="email" value="{{ Auth::user()->email }}" placeholder="Your Email Address">
+                    </div>
+
+                    <div hidden class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="password" name="password" placeholder="Your Password">
+                    </div>
+
+                    <div hidden  class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="password" name="repassword" placeholder="Your Password">
+                    </div>
+                    @else
+
                     <input hidden value="{{ Auth::user()->id }}" type="text">
 
                     <div class="bor8 m-b-20 how-pos4-parent">
@@ -47,6 +68,10 @@
                     <div class="bor8 m-b-20 how-pos4-parent">
                         <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="password" name="repassword" placeholder="Your Password">
                     </div>
+
+
+                    @endif
+
 
 
                     <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">

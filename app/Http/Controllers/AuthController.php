@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use App\Models\User;
+
 
 class AuthController extends Controller
 {
@@ -143,6 +145,7 @@ class AuthController extends Controller
         $user->id_role = 2;
         $user->code = '0';
         $user->status_code = '0';
+        $user->type = '';
         $user->password = bcrypt($request->password);
         $user->save();
 
@@ -168,6 +171,11 @@ class AuthController extends Controller
         $user->id_role = 2;
         $user->code = '0';
         $user->status_code = '0';
+        if ($user->type == 'google') {
+            $user->type = 'google';
+        } else {
+            $user->type = '';
+        }
         if ($request->password != null) {
             $user->password = bcrypt($request->password);
         }
@@ -186,7 +194,7 @@ class AuthController extends Controller
             'password.required' => 'Password tidak boleh kosong',
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->where('type', '!=', 'google')->first();
 
         if ($user) {
             if (Auth::attempt($credentials)) {
@@ -205,6 +213,49 @@ class AuthController extends Controller
             }
         } else {
             return  redirect()->back()->with('erroremail', 'Email salah');
+        }
+    }
+
+    public function redirect()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function GoogleCallback()
+    {
+        try {
+
+            $data = Socialite::driver('google')->user();
+
+            $cekuser = User::where('email', $data->email)->first();
+
+            if ($cekuser) {
+                Auth::login($cekuser);
+                if (Auth::user()->id_role == '1') {
+                    return redirect('/kost')->with('login', 'Anda berhasil login');
+                } else {
+                    return redirect('/')->with('login', 'Anda berhasil login');
+                }
+            } else {
+                $newuser = new User;
+                $newuser->name = $data->name;
+                $newuser->email = $data->email;
+                $newuser->id_role = 2;
+                $newuser->code = '0';
+                $newuser->status_code = '0';
+                $newuser->type = 'google';
+                $newuser->password = bcrypt('12345678');
+                $newuser->save();
+
+                Auth::login($newuser);
+                if (Auth::user()->id_role == '1') {
+                    return redirect('/kost')->with('login', 'Anda berhasil login');
+                } else {
+                    return redirect('/')->with('login', 'Anda berhasil login');
+                }
+            }
+        } catch (Exception $e) {
+            return redirect('/loginuser')->with('error', 'Login Gagal');
         }
     }
 
