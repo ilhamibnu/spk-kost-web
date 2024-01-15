@@ -194,7 +194,7 @@ class AuthController extends Controller
             'password.required' => 'Password tidak boleh kosong',
         ]);
 
-        $user = User::where('email', $request->email)->where('type', '!=', 'google')->first();
+        $user = User::where('email', $request->email)->first();
 
         if ($user) {
             if (Auth::attempt($credentials)) {

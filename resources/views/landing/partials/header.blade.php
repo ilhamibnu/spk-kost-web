@@ -32,7 +32,7 @@
                               @if(Auth::check())
 
                               <li>
-                                  <a href="index.html">{{ Auth::user()->name }}</a>
+                                  <a href="#">{{ Auth::user()->name }}</a>
                                   <ul class="sub-menu">
                                       <li><a href="/myprofil/#myprofil">My Profil</a></li>
                                       <li><a href="/whitelist/#whitelist">My Whitelist</a></li>
@@ -78,7 +78,7 @@
       <div class="wrap-header-mobile">
           <!-- Logo moblie -->
           <div class="logo-mobile">
-              <a href="/"><img src="{{ asset('landing/images/icons/e-kost.png') }}" alt="IMG-LOGO"></a>
+              <a href="/"><img src="{{ asset('landing/images/icons/e-kost-2.png') }}" alt="IMG-LOGO"></a>
           </div>
 
           <!-- Button show menu -->
@@ -108,7 +108,7 @@
               @if (Auth::check())
 
               <li>
-                  <a href="index.html">{{ Auth::user()->name }}</a>
+                  <a href="#">{{ Auth::user()->name }}</a>
                   <ul class="sub-menu-m">
                       <li><a href="/myprofil/#myprofil">My Profile</a></li>
                       <li><a href="/whitelist/#whitelist">My Whitelist</a></li>

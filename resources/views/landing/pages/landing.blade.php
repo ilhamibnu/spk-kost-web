@@ -149,6 +149,7 @@
                 @include('landing.data.landing')
             </div>
         </div>
+        <div id="trigger"></div>
     </div>
 </section>
 @endsection
@@ -170,8 +171,9 @@
     var ENDPOINT = '/?cari=' + encodeURIComponent("{{ $cari }}")
     @endif
 
+    // jika scroll sudah mencapai bagian id trigger maka akan memanggil fungsi loadMoreData
     $(window).scroll(function() {
-        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+        if ($(window).scrollTop() + $(window).height() >= $('#trigger').offset().top) {
             page++;
             loadMoreData(page);
         }
@@ -187,7 +189,7 @@
             })
             .done(function(data) {
                 if (data.html == "") {
-                    $('.ajax-load').html("No more records found");
+                    alert('data habis');
                     return;
                 }
                 $('.ajax-load').hide();

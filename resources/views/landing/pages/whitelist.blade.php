@@ -21,6 +21,7 @@
                 @include('landing.data.whitelist')
             </div>
         </div>
+        <div id="trigger"></div>
     </div>
 </section>
 @endsection
@@ -31,8 +32,9 @@
     var page = 1;
     var ENDPOINT = "/whitelist?";
 
+    // jika scroll sudah mencapai bagian id trigger maka akan memanggil fungsi loadMoreData
     $(window).scroll(function() {
-        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+        if ($(window).scrollTop() + $(window).height() >= $('#trigger').offset().top) {
             page++;
             loadMoreData(page);
         }
