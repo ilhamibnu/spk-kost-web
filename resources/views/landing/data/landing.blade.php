@@ -34,7 +34,9 @@
 
                     @endif
 
-                    <img src="{{ asset('fotokost/' . $data->foto) }}" alt="IMG-PRODUCT">
+
+
+                     <a href="/detail-kost/{{ $data->id }}/#detail-kost" target="_blank"><img height="500px" width="500px" src="{{ asset('fotokost/' . $data->foto) }}" alt="IMG-PRODUCT"></a>
 
                     <a href="/detail-kost/{{ $data->id }}/#detail-kost" target="_blank" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                         Detail
@@ -50,8 +52,9 @@
                         <span class="stext-105 cl3">
                             Rp. {{ number_format($data->price) }}
                         </span>
-                    </div>
 
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,8 +90,9 @@
 
                             @endif
 
+                                <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" target="_blank"><img height="500px" width="500px" src="{{ asset('fotokost/' . $data['data']->kost->foto) }}" alt="IMG-PRODUCT"></a>
 
-                            <img src="{{ asset('fotokost/' . $data['data']->kost->foto) }}" alt="IMG-PRODUCT">
+
 
                             <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" target="_blank" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                 Detail

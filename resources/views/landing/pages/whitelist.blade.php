@@ -21,7 +21,7 @@
                 @include('landing.data.whitelist')
             </div>
         </div>
-        <div id="trigger"></div>
+          <div id="trigger"></div>
     </div>
 </section>
 @endsection
@@ -32,8 +32,7 @@
     var page = 1;
     var ENDPOINT = "/whitelist?";
 
-    // jika scroll sudah mencapai bagian id trigger maka akan memanggil fungsi loadMoreData
-    $(window).scroll(function() {
+        $(window).scroll(function() {
         if ($(window).scrollTop() + $(window).height() >= $('#trigger').offset().top) {
             page++;
             loadMoreData(page);
@@ -57,7 +56,7 @@
                 $("#test").append('<div class="row">' + data.html + '</div>');
             })
             .fail(function(jqXHR, ajaxOptions, thrownError) {
-                alert('server not responding...');
+                // alert('server not responding...');
             });
     }
 

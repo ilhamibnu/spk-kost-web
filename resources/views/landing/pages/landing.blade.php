@@ -43,6 +43,15 @@
 
             <!-- Filter -->
             <div class="dis-none panel-filter w-full p-t-10">
+                  <div class="alert alert-warning alert-dismissible fade show mt-2">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+                    <div class="text-center">
+                        <span>Apabila terdapat kriteria yang tidak dipilih, filter tidak akan proses oleh system.</span>
+                    </div>
+
+
+                </div>
                 <div class="justify-content-center wrap-filter flex-w bg0 w-full p-lr-40 p-t-27 p-lr-15-sm">
                     <form class="justify-content-center wrap-filter flex-w bg0 w-full p-lr-40 p-t-27 p-lr-15-sm" action="" method="get">
                         <div class="filter-col1 p-r-15 p-b-27">
@@ -111,7 +120,7 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_keamanan" class="form-control" id="exampleFormControlSelect1">
-                                    <option selected="0">Pilih Keamanan</option>
+                                    <option selected value="0">Pilih Keamanan</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
@@ -147,9 +156,10 @@
         <div id="test">
             <div class="row">
                 @include('landing.data.landing')
+
             </div>
         </div>
-        <div id="trigger"></div>
+         <div id="trigger"></div>
     </div>
 </section>
 @endsection
@@ -171,13 +181,14 @@
     var ENDPOINT = '/?cari=' + encodeURIComponent("{{ $cari }}")
     @endif
 
-    // jika scroll sudah mencapai bagian id trigger maka akan memanggil fungsi loadMoreData
-    $(window).scroll(function() {
+        $(window).scroll(function() {
         if ($(window).scrollTop() + $(window).height() >= $('#trigger').offset().top) {
             page++;
             loadMoreData(page);
         }
     });
+
+
 
     function loadMoreData(page) {
         $.ajax({
@@ -189,14 +200,14 @@
             })
             .done(function(data) {
                 if (data.html == "") {
-                    alert('data habis');
-                    return;
+                    // alert('data habis');
+                    // return;
                 }
                 $('.ajax-load').hide();
                 $("#test").append('<div class="row">' + data.html + '</div>');
             })
             .fail(function(jqXHR, ajaxOptions, thrownError) {
-                alert('server not responding...');
+                // alert('server not responding...');
             });
     }
 
