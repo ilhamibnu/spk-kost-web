@@ -21,7 +21,12 @@
                 @include('landing.data.whitelist')
             </div>
         </div>
-          <div id="trigger"></div>
+        <div class="ajax-load text-center" style="display:none">
+            <p><img width="70px" height="70px" src="{{ asset('landing/images/icons/loading-2.gif') }}"></p>
+        </div>
+        <div class="justify-content-center text-center">
+            <button id="loadmore" class="stext-103 cl2 size-102 bg0 bor4 hov-btn1 p-lr-15 trans-04">Load More</button>
+        </div>
     </div>
 </section>
 @endsection
@@ -32,11 +37,10 @@
     var page = 1;
     var ENDPOINT = "/whitelist?";
 
-        $(window).scroll(function() {
-        if ($(window).scrollTop() + $(window).height() >= $('#trigger').offset().top) {
-            page++;
-            loadMoreData(page);
-        }
+    // jika tombol loadmore diklik
+    $("#loadmore").click(function() {
+        page++;
+        loadMoreData(page);
     });
 
     function loadMoreData(page) {
@@ -45,14 +49,17 @@
                 , type: "get"
                 , beforeSend: function() {
                     $('.ajax-load').show();
+                    $('#loadmore').hide();
                 }
             })
             .done(function(data) {
                 if (data.html == "") {
+                    $('#loadmore').hide();
                     $('.ajax-load').html("No more records found");
                     return;
                 }
                 $('.ajax-load').hide();
+                $('#loadmore').show();
                 $("#test").append('<div class="row">' + data.html + '</div>');
             })
             .fail(function(jqXHR, ajaxOptions, thrownError) {
