@@ -14,6 +14,7 @@ use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\PenghitunganController;
 use App\Http\Controllers\SimulasiRekomendasiController;
 use App\Http\Controllers\SubKriteriaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -115,3 +116,9 @@ Route::get('/penghitungan', [PenghitunganController::class, 'index'])->middlewar
 # Simulasi Rekomendasi Controller
 Route::get('/simulasi-rekomendasi', [SimulasiRekomendasiController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
 Route::post('/simulasi-rekomendasi', [SimulasiRekomendasiController::class, 'cari'])->middleware('IsLogin', 'IsAdmin');
+
+# User Controller
+Route::get('/user', [UserController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/user', [UserController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/user/{id}', [UserController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
