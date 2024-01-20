@@ -188,6 +188,12 @@
                                                     <textarea name="alamat" class="form-control" id="" cols="30" rows="3" required>{{ $data->alamat }}</textarea>
                                                 </div>
 
+
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Maps</label>
+                                                    <input name="maps" value="{{ $data->maps }}" type="text" class="form-control" required>
+                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="control-label">Deskripsi</label>
                                                     <textarea name="deskripsi" class="form-control" id="" cols="30" rows="3" required>{{ $data->deskripsi }}</textarea>
@@ -316,6 +322,11 @@
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Alamat</label>
                                         <textarea class="form-control" name="alamat" id="" cols="30" rows="3" required></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Maps</label>
+                                        <input name="maps" value="" type="text" class="form-control" required>
                                     </div>
 
                                     <div class="form-group">

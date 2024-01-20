@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('price');
             $table->longText('alamat');
+            $table->text('maps');
             $table->longText('deskripsi');
             $table->string('no_pemilik');
             $table->string('foto');

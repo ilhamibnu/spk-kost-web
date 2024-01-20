@@ -15,6 +15,7 @@ class Kost extends Model
         'name',
         'price',
         'alamat',
+        'maps',
         'deskripsi',
         'no_pemilik',
         'foto',

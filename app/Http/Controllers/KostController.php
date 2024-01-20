@@ -49,6 +49,7 @@ class KostController extends Controller
             'name' => 'required',
             'price' => 'required',
             'alamat' => 'required',
+            'maps' => 'required',
             'deskripsi' => 'required',
             'no_pemilik' => 'required',
             'foto' => 'required',
@@ -62,6 +63,7 @@ class KostController extends Controller
             'name.required' => 'Nama kost harus diisi',
             'price.required' => 'Price harus diisi',
             'alamat.required' => 'Alamat harus diisi',
+            'maps.required' => 'Maps harus diisi',
             'deskripsi.required' => 'Deskripsi harus diisi',
             'no_pemilik.required' => 'No pemilik harus diisi',
             'foto.required' => 'Foto harus diisi',
@@ -77,6 +79,7 @@ class KostController extends Controller
         $kost->name = $request->name;
         $kost->price = $request->price;
         $kost->alamat = $request->alamat;
+        $kost->maps = $request->maps;
         $kost->deskripsi = $request->deskripsi;
         $kost->no_pemilik = $request->no_pemilik;
 
@@ -113,6 +116,7 @@ class KostController extends Controller
             'name' => 'required',
             'price' => 'required',
             'alamat' => 'required',
+            'maps' => 'required',
             'deskripsi' => 'required',
             'no_pemilik' => 'required',
             'id_aksesjalan' => 'required',
@@ -125,6 +129,7 @@ class KostController extends Controller
             'name.required' => 'Nama kost harus diisi',
             'price.required' => 'Price harus diisi',
             'alamat.required' => 'Alamat harus diisi',
+            'maps.required' => 'Maps harus diisi',
             'deskripsi.required' => 'Deskripsi harus diisi',
             'no_pemilik.required' => 'No pemilik harus diisi',
             'id_aksesjalan.required' => 'Akses jalan harus diisi',
@@ -139,6 +144,7 @@ class KostController extends Controller
         $kost->name = $request->name;
         $kost->price = $request->price;
         $kost->alamat = $request->alamat;
+        $kost->maps = $request->maps;
         $kost->deskripsi = $request->deskripsi;
         $kost->no_pemilik = $request->no_pemilik;
 

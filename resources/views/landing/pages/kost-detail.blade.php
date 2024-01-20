@@ -150,7 +150,7 @@
 
                             <div class="tab-pane fade" id="maps" role="tabpanel">
                                 <div class="text-center">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2570.613169976101!2d113.7229333010857!3d-8.158168134889344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718012019!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    {!! nl2br($kost->maps) !!}
                                 </div>
                             </div>
 
