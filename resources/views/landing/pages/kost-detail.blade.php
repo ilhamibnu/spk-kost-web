@@ -125,15 +125,15 @@
                     <div class="tab01">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item p-b-10">
+                            <li class="nav-item p-b-5">
                                 <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a>
                             </li>
 
-                            <li class="nav-item p-b-10">
-                                <a class="nav-link" data-toggle="tab" href="#information" role="tab">Additional information</a>
+                            <li class="nav-item p-b-5">
+                                <a class="nav-link" data-toggle="tab" href="#information" role="tab">Information</a>
                             </li>
-                            <li class="nav-item p-b-10">
-                                <a class="nav-link" data-toggle="tab" href="#maps" role="tab">Location</a>
+                            <li class="nav-item p-b-5">
+                                <a class="nav-link" data-toggle="tab" href="#maps" role="tab">Maps</a>
                             </li>
                         </ul>
 
@@ -149,10 +149,15 @@
                             </div>
 
                             <div class="tab-pane fade" id="maps" role="tabpanel">
-                                <div class="text-center">
-                                    {!! nl2br($kost->maps) !!}
+                                <div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
+                                    <ul class="p-lr-28 p-lr-15-sm">
+                                        <li class="flex-w flex-t p-b-7">
+                                            {!! nl2br($kost->maps) !!}
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
+
 
                             <!-- - -->
                             <div class="tab-pane fade" id="information" role="tabpanel">
