@@ -50,6 +50,7 @@
                                 <td><img src="{{ asset('fotokost/'.$data->foto) }}" alt="" class="img-rounded" width="100px"></td>
                                 <td>{{ $data->name }}</td>
                                 <td>
+                                    <a class="btn btn-info btn-sm" href="/detail-foto-kost/{{ $data->id }}">Detail Foto</a>
                                     <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#detail{{ $data->id }}"><i class="fas fa-eye"></i></button>
                                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit{{ $data->id }}"><i class="fas fa-pencil-alt"></i></button>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $data->id }}"><i class="fas fa-trash"></i></button>

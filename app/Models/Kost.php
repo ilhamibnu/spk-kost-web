@@ -66,4 +66,9 @@ class Kost extends Model
     {
         return $this->belongsTo(Lokasi::class, 'id_lokasi');
     }
+
+    public function detailkostfoto()
+    {
+        return $this->hasMany(DetailKostFoto::class, 'id_kost');
+    }
 }

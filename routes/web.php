@@ -3,6 +3,7 @@
 use App\Http\Controllers\AksesJalanController;
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DetailFotoKostController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\HargaController;
 use App\Http\Controllers\JarakController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\PenghitunganController;
 use App\Http\Controllers\SimulasiRekomendasiController;
 use App\Http\Controllers\SubKriteriaController;
 use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -122,3 +124,9 @@ Route::get('/user', [UserController::class, 'index'])->middleware('IsLogin', 'Is
 Route::post('/user', [UserController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
 Route::put('/user/{id}', [UserController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
 Route::delete('/user/{id}', [UserController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
+
+# Detail Foto Kost Controller
+Route::get('/detail-foto-kost/{id}', [DetailFotoKostController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/detail-foto-kost', [DetailFotoKostController::class, 'store'])->middleware('IsLogin', 'IsAdmin');
+Route::put('/detail-foto-kost/{id}', [DetailFotoKostController::class, 'update'])->middleware('IsLogin', 'IsAdmin');
+Route::delete('/detail-foto-kost/{id}', [DetailFotoKostController::class, 'destroy'])->middleware('IsLogin', 'IsAdmin');
