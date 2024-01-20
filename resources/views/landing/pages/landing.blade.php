@@ -33,7 +33,7 @@
             <div class="dis-none panel-search w-full p-t-10 p-b-15">
                 {{-- <div class="bor8 dis-flex p-l-15"> --}}
                 <form class="bor8 dis-flex p-l-15" action="" method="get">
-                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="cari" placeholder="Search">
+                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" @if(Session::get('cari') !=null) value="{{ Session::get('cari') }}" @else value="" @endif name="cari" placeholder="Search">
                     <button type="submit" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                         <i class="zmdi zmdi-search"></i>
                     </button>
@@ -60,12 +60,47 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_jarak" class="form-control" id="exampleFormControlSelect1">
+                                    @if(Session::get('kepentingan_jarak') !=null)
+                                            @if(Session::get('kepentingan_jarak') == 1)
+                                                <option selected value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_jarak') == 2)
+                                                <option value="1">Tidak Penting</option>
+                                                <option selected value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_jarak') == 3)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option selected value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_jarak') == 4)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option selected value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_jarak') == 5)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option selected value="5">Sangat Penting</option>
+                                             @endif
+                                    @else
                                     <option selected value="0">Pilih Jarak</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
                                     <option value="4">Penting</option>
                                     <option value="5">Sangat Penting</option>
+
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -75,12 +110,47 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_fasilitas" class="form-control" id="exampleFormControlSelect1">
+
+                                    @if(Session::get('kepentingan_fasilitas') !=null)
+                                            @if(Session::get('kepentingan_fasilitas') == 1)
+                                                <option selected value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_fasilitas') == 2)
+                                                <option value="1">Tidak Penting</option>
+                                                <option selected value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_fasilitas') == 3)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option selected value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_fasilitas') == 4)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option selected value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_fasilitas') == 5)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option selected value="5">Sangat Penting</option>
+                                             @endif
+                                    @else
                                     <option selected value="0">Pilih Fasilitas</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
                                     <option value="4">Penting</option>
                                     <option value="5">Sangat Penting</option>
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -90,12 +160,47 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_harga" class="form-control" id="exampleFormControlSelect1">
+
+                                    @if(Session::get('kepentingan_harga') !=null)
+                                            @if(Session::get('kepentingan_harga') == 1)
+                                                <option selected value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_harga') == 2)
+                                                <option value="1">Tidak Penting</option>
+                                                <option selected value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_harga') == 3)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option selected value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_harga') == 4)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option selected value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_harga') == 5)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option selected value="5">Sangat Penting</option>
+                                             @endif
+                                    @else
                                     <option selected value="0">Pilih Harga</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
                                     <option value="4">Penting</option>
                                     <option value="5">Sangat Penting</option>
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -105,12 +210,47 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_lokasi" class="form-control" id="exampleFormControlSelect1">
+
+                                    @if(Session::get('kepentingan_lokasi') !=null)
+                                            @if(Session::get('kepentingan_lokasi') == 1)
+                                                <option selected value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_lokasi') == 2)
+                                                <option value="1">Tidak Penting</option>
+                                                <option selected value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_lokasi') == 3)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option selected value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_lokasi') == 4)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option selected value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_lokasi') == 5)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option selected value="5">Sangat Penting</option>
+                                             @endif
+                                    @else
                                     <option selected value="0">Pilih Lokasi</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
                                     <option value="4">Penting</option>
                                     <option value="5">Sangat Penting</option>
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -120,12 +260,47 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_keamanan" class="form-control" id="exampleFormControlSelect1">
+
+                                    @if(Session::get('kepentingan_keamanan') !=null)
+                                            @if(Session::get('kepentingan_keamanan') == 1)
+                                                <option selected value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_keamanan') == 2)
+                                                <option value="1">Tidak Penting</option>
+                                                <option selected value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_keamanan') == 3)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option selected value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_keamanan') == 4)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option selected value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_keamanan') == 5)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option selected value="5">Sangat Penting</option>
+                                             @endif
+                                    @else
                                     <option selected value="0">Pilih Keamanan</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
                                     <option value="4">Penting</option>
                                     <option value="5">Sangat Penting</option>
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -135,12 +310,47 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_aksesjalan" class="form-control" id="exampleFormControlSelect1">
+
+                                    @if(Session::get('kepentingan_aksesjalan') !=null)
+                                            @if(Session::get('kepentingan_aksesjalan') == 1)
+                                                <option selected value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_aksesjalan') == 2)
+                                                <option value="1">Tidak Penting</option>
+                                                <option selected value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_aksesjalan') == 3)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option selected value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_aksesjalan') == 4)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option selected value="4">Penting</option>
+                                                <option value="5">Sangat Penting</option>
+                                                @elseif(Session::get('kepentingan_aksesjalan') == 5)
+                                                <option value="1">Tidak Penting</option>
+                                                <option value="2">Kurang Penting</option>
+                                                <option value="3">Cukup Penting</option>
+                                                <option value="4">Penting</option>
+                                                <option selected value="5">Sangat Penting</option>
+                                             @endif
+                                    @else
                                     <option selected value="0">Pilih Akses Jalan</option>
                                     <option value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
                                     <option value="3">Cukup Penting</option>
                                     <option value="4">Penting</option>
                                     <option value="5">Sangat Penting</option>
+                                    @endif
                                 </select>
                             </div>
                         </div>

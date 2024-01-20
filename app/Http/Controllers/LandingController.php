@@ -9,11 +9,20 @@ use App\Models\SimpanKost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Session;
 
 class LandingController extends Controller
 {
     public function index(Request $request)
     {
+        session::flash('cari', $request->cari);
+        session::flash('kepentingan_lokasi', $request->kepentingan_lokasi);
+        session::flash('kepentingan_harga', $request->kepentingan_harga);
+        session::flash('kepentingan_fasilitas', $request->kepentingan_fasilitas);
+        session::flash('kepentingan_jarak', $request->kepentingan_jarak);
+        session::flash('kepentingan_keamanan', $request->kepentingan_keamanan);
+        session::flash('kepentingan_aksesjalan', $request->kepentingan_aksesjalan);
+
         // jika nilai kepentingan ada yang bernilai 0 maka tidak usah dihitung
         if ($request->kepentingan_lokasi == 0 || $request->kepentingan_harga == 0 || $request->kepentingan_fasilitas == 0 || $request->kepentingan_jarak == 0 || $request->kepentingan_keamanan == 0 || $request->kepentingan_aksesjalan == 0) {
 
