@@ -17,7 +17,7 @@
         <div class="flex-w flex-sb-m p-b-52">
         </div>
         <div id="test">
-            <div class="row">
+            <div class="row justify-content-center">
                 @include('landing.data.whitelist')
             </div>
         </div>

@@ -364,7 +364,7 @@
             </div>
         </div>
         <div id="test">
-            <div class="row">
+            <div class="row justify-content-center">
                 @include('landing.data.landing')
             </div>
         </div>

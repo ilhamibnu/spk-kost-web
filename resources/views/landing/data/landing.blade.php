@@ -36,23 +36,28 @@
 
 
 
-                     <img height="500px" width="500px" src="{{ asset('fotokost/' . $data->foto) }}" alt="IMG-PRODUCT">
+                    <img height="500px" width="500px" src="{{ asset('fotokost/' . $data->foto) }}" alt="IMG-PRODUCT">
 
-                    <a href="/detail-kost/{{ $data->id }}/#detail-kost" target="_blank" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                    <a href="/detail-kost/{{ $data->id }}/#detail-kost" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                         Detail
                     </a>
                 </div>
 
                 <div class="block2-txt flex-w flex-t p-t-14">
                     <div class="block2-txt-child1 flex-col-l ">
-                        <a href="/detail-kost/{{ $data->id }}/#detail-kost" target="_blank" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                        <a href="/detail-kost/{{ $data->id }}/#detail-kost" class="stext-105 cl3 hov-cl1"><i class="zmdi zmdi-home"></i>
                             {{ $data->name }}
                         </a>
 
-                        <span class="stext-105 cl3">
+                        <span class="stext-105 cl3"><i class="zmdi zmdi-label"></i>
                             Rp. {{ number_format($data->price) }}
                         </span>
-
+                        <span class="stext-105 cl3"><i class="zmdi zmdi-pin"></i>
+                            {{ $data->alamat }}
+                        </span>
+                        <span class="stext-105 cl3"><i class="zmdi zmdi-bookmark"></i>
+                            {{ $data->fasilitas->name }}
+                        </span>
 
                     </div>
                 </div>
@@ -90,23 +95,29 @@
 
                             @endif
 
-                               <img height="500px" width="500px" src="{{ asset('fotokost/' . $data['data']->kost->foto) }}" alt="IMG-PRODUCT">
+                            <img height="500px" width="500px" src="{{ asset('fotokost/' . $data['data']->kost->foto) }}" alt="IMG-PRODUCT">
 
 
 
-                            <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" target="_blank" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                            <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                 Detail
                             </a>
                         </div>
 
                         <div class="block2-txt flex-w flex-t p-t-14">
                             <div class="block2-txt-child1 flex-col-l ">
-                                <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" target="_blank" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                <a href="/detail-kost/{{ $data['data']->kost->id }}/#detail-kost" class="stext-105 cl3 hov-cl1"><i class="zmdi zmdi-home"></i>
                                     {{ $data['data']->kost->name }}
                                 </a>
 
                                 <span class="stext-105 cl3">
                                     Rp. {{ number_format($data['data']->kost->price) }}
+                                </span>
+                                <span class="stext-105 cl3"><i class="zmdi zmdi-pin"></i>
+                                    {{ $data['data']->kost->alamat }}
+                                </span>
+                                <span class="stext-105 cl3"><i class="zmdi zmdi-bookmark"></i>
+                                    {{ $data['data']->kost->fasilitas->name }}
                                 </span>
                             </div>
                         </div>

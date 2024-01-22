@@ -7,14 +7,15 @@
 <!-- breadcrumb -->
 <div class="container">
     <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-        <a href="/" class="stext-109 cl8 hov-cl1 trans-04">
+        {{-- <a href="/" class="stext-109 cl8 hov-cl1 trans-04">
             Home
             <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
         </a>
 
         <span class="stext-109 cl4">
             {{ $kost->name }}
-        </span>
+        </span> --}}
+        <a class="btn stext-101 cl0 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1" href="{{ url()->previous() }}"><i class="zmdi zmdi-arrow-left"></i></a>
     </div>
 </div>
 
@@ -80,42 +81,20 @@
 
                         <a class="btn stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1" href="https://wa.me/{{ $kost->no_pemilik }}" target="_blank"><i class="zmdi zmdi-whatsapp mt-2"></i></a>
 
-                        @if(Auth::check() != null)
+                        <div id="whitelist">
 
-                        @php
-                        $cek = \App\Models\SimpanKost::where('id_user', Auth::user()->id)->where('id_kost', $kost->id)->first();
-                        @endphp
+                            <input id="id_kost" hidden name="id_kost" value="{{ $kost->id }}">
+                            <input id="id_user" hidden name="id_user" value="@if(Auth::check()){{ Auth::user()->id }}@else{{ 'notlogin' }}@endif">
 
-                        @if($cek == null)
-
-                        <form action="/simpanwhitelist" method="post">
-                            @csrf
-                            <input hidden name="id_kost" value="{{ $kost->id }}">
-                            <input hidden name="id_user" value="{{ Auth::user()->id }}">
-                            <button class="stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1">
+                            <button hidden id="btn_simpan" class="stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1">
                                 <i class="zmdi zmdi-favorite"></i>
                             </button>
-                        </form>
 
-                        @else
-                        <form action="/deletewhitelist" method="post">
-                            @csrf
-                            <input hidden name="id_kost" value="{{ $kost->id }}">
-                            <input hidden name="id_user" value="{{ Auth::user()->id }}">
-                            <button class="stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1">
+                            <button hidden id="btn_hapus" class="stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 m-2 mt-1">
                                 <i class="zmdi zmdi-delete"></i>
                             </button>
-                        </form>
-                        @endif
 
-
-
-                        @else
-
-
-                        @endif
-
-
+                        </div>
 
                     </div>
 
@@ -292,5 +271,81 @@
 
 </script>
 @endif
+
+<script>
+    var cekwhitelist = "{{ $whitelist }}";
+
+    if (cekwhitelist != 'notlogin') {
+
+        if (cekwhitelist == 1) {
+            $('#btn_hapus').removeAttr('hidden');
+        } else {
+            $('#btn_simpan').removeAttr('hidden');
+        }
+
+    } else {
+
+
+    }
+
+    $(document).ready(function() {
+        $('#btn_simpan').click(function() {
+            var id_kost = $('#id_kost').val();
+            var id_user = $('#id_user').val();
+            var csrf = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "/simpanwhitelist"
+                , type: "POST"
+                , data: {
+                    _token: csrf
+                    , id_kost: id_kost
+                    , id_user: id_user
+                }
+                , success: function(data) {
+                    swal({
+                        title: "Berhasil"
+                        , text: "Berhasil menyimpan kost ke daftar favorit"
+                        , icon: "success"
+                        , button: "OK"
+                    , });
+                    $('#btn_simpan').attr('hidden', 'hidden');
+                    $('#btn_hapus').removeAttr('hidden');
+                }
+                , error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
+        $('#btn_hapus').click(function() {
+            var id_kost = $('#id_kost').val();
+            var id_user = $('#id_user').val();
+            var csrf = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "/deletewhitelist"
+                , type: "POST"
+                , data: {
+                    _token: csrf
+                    , id_kost: id_kost
+                    , id_user: id_user
+                }
+                , success: function(data) {
+                    swal({
+                        title: "Berhasil"
+                        , text: "Berhasil menghapus kost dari daftar favorit"
+                        , icon: "success"
+                        , button: "OK"
+                    , });
+                    $('#btn_hapus').attr('hidden', 'hidden');
+                    $('#btn_simpan').removeAttr('hidden');
+                }
+                , error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+    });
+
+</script>
 
 @endsection

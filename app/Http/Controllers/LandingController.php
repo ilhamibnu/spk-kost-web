@@ -244,6 +244,7 @@ class LandingController extends Controller
 
             return view('landing.pages.kost-detail', [
                 'kost' => $kost,
+                'whitelist' => 'notlogin',
             ]);
         } else {
             if (Auth::user()->id_role == 1) {
@@ -258,8 +259,16 @@ class LandingController extends Controller
                     'lokasi',
                 ])->find($id);
 
+                $cekwhitelist = SimpanKost::where('id_kost', $id)->where('id_user', Auth::user()->id)->first();
+                if ($cekwhitelist == null) {
+                    $whitelist = 0;
+                } else {
+                    $whitelist = 1;
+                }
+
                 return view('landing.pages.kost-detail', [
                     'kost' => $kost,
+                    'whitelist' => $whitelist,
                 ]);
             }
         }
@@ -294,12 +303,17 @@ class LandingController extends Controller
         $id_kost = $request->id_kost;
         $id_user = $request->id_user;
 
+        $cek = SimpanKost::where('id_kost', $id_kost)->where('id_user', $id_user)->first();
+        if ($cek != null) {
+            return response()->json(['error' => 'Kost sudah ada di daftar simpan']);
+        }
+
         SimpanKost::create([
             'id_kost' => $id_kost,
             'id_user' => $id_user,
         ]);
 
-        return redirect('/detail-kost/' . $id_kost . '/#detail-kost')->with('simpanwhitelist', 'Kost berhasil disimpan');
+        return response()->json(['success' => 'Kost berhasil disimpan ke daftar simpan']);
     }
 
     public function deletewhitelist(Request $request)
@@ -307,8 +321,13 @@ class LandingController extends Controller
         $id_kost = $request->id_kost;
         $id_user = $request->id_user;
 
+        $cek = SimpanKost::where('id_kost', $id_kost)->where('id_user', $id_user)->first();
+        if ($cek == null) {
+            return response()->json(['error' => 'Kost tidak ada di daftar simpan']);
+        }
+
         SimpanKost::where('id_kost', $id_kost)->where('id_user', $id_user)->delete();
 
-        return redirect('/detail-kost/' . $id_kost . '/#detail-kost')->with('deletewhitelist', 'Kost berhasil dihapus');
+        return response()->json(['success' => 'Kost berhasil dihapus dari daftar simpan']);
     }
 }
