@@ -242,8 +242,11 @@ class LandingController extends Controller
                 'lokasi',
             ])->find($id);
 
+            $kostfavorite = SimpanKost::select('id_kost')->groupBy('id_kost')->orderByRaw('COUNT(*) DESC')->where('id_kost', '!=', $id)->limit(5)->get();
+
             return view('landing.pages.kost-detail', [
                 'kost' => $kost,
+                'kostfavorite' => $kostfavorite,
                 'whitelist' => 'notlogin',
             ]);
         } else {
@@ -259,6 +262,8 @@ class LandingController extends Controller
                     'lokasi',
                 ])->find($id);
 
+                $kostfavorite = SimpanKost::select('id_kost')->groupBy('id_kost')->orderByRaw('COUNT(*) DESC')->where('id_kost', '!=', $id)->limit(5)->get();
+
                 $cekwhitelist = SimpanKost::where('id_kost', $id)->where('id_user', Auth::user()->id)->first();
                 if ($cekwhitelist == null) {
                     $whitelist = 0;
@@ -268,6 +273,7 @@ class LandingController extends Controller
 
                 return view('landing.pages.kost-detail', [
                     'kost' => $kost,
+                    'kostfavorite' => $kostfavorite,
                     'whitelist' => $whitelist,
                 ]);
             }

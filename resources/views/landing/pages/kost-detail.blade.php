@@ -243,6 +243,63 @@
         </div>
     </div>
 </section>
+<div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
+    <span class="stext-107 cl6 p-lr-25">
+
+    </span>
+
+    <span class="stext-107 cl6 p-lr-25">
+
+    </span>
+</div>
+<section class="sec-relate-product bg0 p-t-45 p-b-105">
+    <div class="container">
+        <div class="p-b-45">
+            <h3 class="ltext-106 cl5 txt-center">
+                Orang Lain Juga Menyukai Ini
+            </h3>
+        </div>
+
+        <!-- Slide2 -->
+        <div class="wrap-slick2">
+            <div class="slick2">
+                @foreach ($kostfavorite as $data)
+                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+                    <!-- Block2 -->
+                    <div class="block2">
+                        <div class="block2-pic hov-img0">
+                            <img src="{{ asset('fotokost/' . $data->kost->foto) }}" alt="IMG-PRODUCT">
+
+                            <a href="/detail-kost/{{ $data->kost->id }}/#detail-kost" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                View
+                            </a>
+                        </div>
+
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l ">
+                                <a href="/detail-kost/{{ $data->id }}/#detail-kost" class="stext-105 cl3 hov-cl1"><i class="zmdi zmdi-home"></i>
+                                    {{ $data->kost->name }}
+                                </a>
+
+                                <span class="stext-105 cl3"><i class="zmdi zmdi-label"></i>
+                                    Rp. {{ number_format($data->kost->price) }}
+                                </span>
+                                <span class="stext-105 cl3"><i class="zmdi zmdi-pin"></i>
+                                    {{ $data->kost->alamat }}
+                                </span>
+                                <span class="stext-105 cl3"><i class="zmdi zmdi-bookmark"></i>
+                                    {{ $data->kost->fasilitas->name }}
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
 
 @endsection
 
