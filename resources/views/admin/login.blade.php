@@ -128,9 +128,9 @@
     @if(Session::get('logout'))
     <script>
         Swal.fire({
-            icon: 'success'
-            , title: 'Good'
-            , text: 'Logout Berhasil'
+                icon: 'success'
+                , title: 'Good'
+                , text: 'Logout Berhasil'
         , });
 
     </script>
