@@ -218,6 +218,7 @@ class LandingController extends Controller
             }
 
             return view('landing.pages.landing', [
+                'palingrekomendasi' => $alternatifterbaikData[0],
                 'alternatifterbaik' => $paginatedItems,
                 'cari' => 'filter',
                 'kepentingan_lokasi' => $kepentinganlokasi,

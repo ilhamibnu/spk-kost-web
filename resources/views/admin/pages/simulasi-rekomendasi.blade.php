@@ -193,16 +193,19 @@
                                 <th>No</th>
                                 <th>Kost</th>
                                 <th>Vektor V</th>
+                                <th>Ranking</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php
                             $no = 1;
+                            $rank = 1
                             @endphp
 
                             @if($alternatifterbaik == null)
 
                             <tr>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -216,6 +219,7 @@
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $data['data']->kost->name }}</td>
                                 <td>{{ $data['vektorV'] }}</td>
+                                <td>{{ $rank++}}</td>
                             </tr>
                             @endforeach
 
