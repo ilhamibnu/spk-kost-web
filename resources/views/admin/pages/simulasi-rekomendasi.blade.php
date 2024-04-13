@@ -229,6 +229,53 @@
         </div>
     </div>
 </div>
+@if($alternatifterbaik == null)
+
+@else
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Rekomendasi Kost Terbaik Anda</h4>
+                <div class="alert alert-success alert-dismissible fade show mt-2">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <p>Berdasarkan kriteria yang Anda inputkan, sistem telah melakukan penghitungan dan menemukan rekomendasi kost terbaik untuk Anda:</p>
+                    <strong>Nama Kost : {{ $alternatifterbaik[0]['data']->kost->name }}</strong>
+                    <br>
+                    <strong>Alamat : {{ $alternatifterbaik[0]['data']->kost->alamat }}</strong>
+                    <br>
+                    <strong>Deskripsi : {{ $alternatifterbaik[0]['data']->kost->deskripsi }}</strong>
+                    <br>
+                    <strong>Harga : Rp. {{ number_format($alternatifterbaik[0]['data']->kost->price) }}</strong>
+                    <br>
+                    <strong>Jarak : {{ $alternatifterbaik[0]['data']->kost->jarak->name }}</strong>
+                    <br>
+                    <strong>Fasilitas : {{ $alternatifterbaik[0]['data']->kost->fasilitas->name }}</strong>
+                    <br>
+                    <strong>Lokasi : {{ $alternatifterbaik[0]['data']->kost->lokasi->name }}</strong>
+                    <br>
+                    <strong>Keamanan : {{ $alternatifterbaik[0]['data']->kost->keamanan->name }}</strong>
+                    <br>
+                    <strong>Akses Jalan : {{ $alternatifterbaik[0]['data']->kost->aksesjalan->name }}</strong>
+                    <br>
+                    <strong>Maps :</strong>
+                    {{-- // maps --}}
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <div id="map" style="height: 400px;">
+                                {!! nl2br($alternatifterbaik[0]['data']->kost->maps) !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
+
 @endsection
 
 @section('script')

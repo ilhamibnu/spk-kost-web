@@ -1,23 +1,24 @@
 <?php
 
-use App\Http\Controllers\AksesJalanController;
-use App\Http\Controllers\AlternatifController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DetailFotoKostController;
-use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\KostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HargaController;
 use App\Http\Controllers\JarakController;
-use App\Http\Controllers\KeamananController;
-use App\Http\Controllers\KostController;
-use App\Http\Controllers\KriteriaController;
-use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LokasiController;
-use App\Http\Controllers\PenghitunganController;
-use App\Http\Controllers\SimulasiRekomendasiController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\KeamananController;
+use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\AksesJalanController;
+use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\SubKriteriaController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\PenghitunganController;
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DetailFotoKostController;
+use App\Http\Controllers\SimulasiRekomendasiController;
 
 
 /*
@@ -59,6 +60,9 @@ route::post('/updatepassword', [AuthController::class, 'updatepassword']);
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');
+
+# Dashboard Controller
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
 
 # Kost Controller
 Route::get('/kost', [KostController::class, 'index'])->middleware('IsLogin', 'IsAdmin');

@@ -142,8 +142,13 @@ class SimulasiRekomendasiController extends Controller
             ];
         }
 
+        // ambil satu data kost dengan vektor V terbesar
+        $palingrekomendasi = $alternatifterbaikData[0];
+
+
         return view('admin.pages.simulasi-rekomendasi', [
             'alternatifterbaik' => $alternatifterbaikData,
+            'palingrekomendasi' => $palingrekomendasi,
         ]);
     }
 }

@@ -104,10 +104,6 @@
 
             </div>
 
-            {{-- <footer class="footer text-center text-muted">
-                Badan Pusat Statistik Kabupaten Probolinggo
-            </footer> --}}
-
         </div>
 
     </div>
