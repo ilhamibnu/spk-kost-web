@@ -51,6 +51,7 @@ class SimulasiRekomendasiController extends Controller
             'jarak' => $kepentinganjarak,
             'keamanan' => $kepentingankeamanan,
             'aksesjalan' => $kepentinganaksesjalan,
+            'total' => $kepentinganlokasi + $kepentinganharga + $kepentinganfasilitas + $kepentinganjarak + $kepentingankeamanan + $kepentinganaksesjalan,
         ];
 
 
@@ -71,6 +72,7 @@ class SimulasiRekomendasiController extends Controller
             'jarak' => $nilaibobotjarak,
             'keamanan' => $nilaibobotkeamanan,
             'aksesjalan' => $nilaibobotaksesjalan,
+            'total' => $nilaibobotlokasi + $nilaibobotharga + $nilaibobotfasilitas + $nilaibobotjarak + $nilaibobotkeamanan + $nilaibobotaksesjalan,
         ];
 
         if (Kriteria::all()->where('name', 'Lokasi')->first()->jenis == 'Benefit') {

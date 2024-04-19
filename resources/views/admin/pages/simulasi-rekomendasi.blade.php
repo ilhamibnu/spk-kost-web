@@ -112,6 +112,7 @@
                                 <th>Jarak</th>
                                 <th>Keamanan</th>
                                 <th>Akses Jalan</th>
+                                <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,6 +123,7 @@
                             @if($alternatifterbaik == null)
 
                             <tr>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -140,6 +142,7 @@
                                 <td>{{ $kepentingan['jarak'] }}</td>
                                 <td>{{ $kepentingan['keamanan'] }}</td>
                                 <td>{{ $kepentingan['aksesjalan'] }}</td>
+                                <td>{{ $kepentingan['total'] }}</td>
                             </tr>
 
 
@@ -169,6 +172,7 @@
                                 <th>Jarak</th>
                                 <th>Keamanan</th>
                                 <th>Akses Jalan</th>
+                                <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -179,6 +183,7 @@
                             @if($alternatifterbaik == null)
 
                             <tr>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -197,6 +202,7 @@
                                 <td>{{ $nilaibobot['jarak'] }}</td>
                                 <td>{{ $nilaibobot['keamanan'] }}</td>
                                 <td>{{ $nilaibobot['aksesjalan'] }}</td>
+                                <td>{{ $nilaibobot['total'] }}</td>
                             </tr>
 
 
