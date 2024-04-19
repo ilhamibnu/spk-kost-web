@@ -43,6 +43,17 @@ class SimulasiRekomendasiController extends Controller
         $kepentingankeamanan = $request->kepentingan_keamanan;
         $kepentinganaksesjalan = $request->kepentingan_aksesjalan;
 
+        // ambil semua kepentingan dan masukkan ke array
+        $kepentingan = [
+            'lokasi' => $kepentinganlokasi,
+            'harga' => $kepentinganharga,
+            'fasilitas' => $kepentinganfasilitas,
+            'jarak' => $kepentinganjarak,
+            'keamanan' => $kepentingankeamanan,
+            'aksesjalan' => $kepentinganaksesjalan,
+        ];
+
+
         $jumlahkepentingan = $kepentinganlokasi + $kepentinganharga + $kepentinganfasilitas + $kepentinganjarak + $kepentingankeamanan + $kepentinganaksesjalan;
 
         $nilaibobotlokasi = $kepentinganlokasi / $jumlahkepentingan;
@@ -51,6 +62,16 @@ class SimulasiRekomendasiController extends Controller
         $nilaibobotjarak = $kepentinganjarak / $jumlahkepentingan;
         $nilaibobotkeamanan = $kepentingankeamanan / $jumlahkepentingan;
         $nilaibobotaksesjalan = $kepentinganaksesjalan / $jumlahkepentingan;
+
+        // array nilai bobot
+        $nilaibobot = [
+            'lokasi' => $nilaibobotlokasi,
+            'harga' => $nilaibobotharga,
+            'fasilitas' => $nilaibobotfasilitas,
+            'jarak' => $nilaibobotjarak,
+            'keamanan' => $nilaibobotkeamanan,
+            'aksesjalan' => $nilaibobotaksesjalan,
+        ];
 
         if (Kriteria::all()->where('name', 'Lokasi')->first()->jenis == 'Benefit') {
             $nilaipangkatlokasi = pow($nilaibobotlokasi, 1);
@@ -88,6 +109,16 @@ class SimulasiRekomendasiController extends Controller
             $nilaipangkataksesjalan = -1 * pow($nilaibobotaksesjalan, 1);
         }
 
+        // nilai pangkat
+        $nilaipangkat = [
+            'lokasi' => $nilaipangkatlokasi,
+            'harga' => $nilaipangkatharga,
+            'fasilitas' => $nilaipangkatfasilitas,
+            'jarak' => $nilaipangkatjarak,
+            'keamanan' => $nilaipangkatkeamanan,
+            'aksesjalan' => $nilaipangkataksesjalan,
+        ];
+
         // penghitungan vektor S
 
         $alternatif = Alternatif::with('kost')->get();
@@ -104,6 +135,20 @@ class SimulasiRekomendasiController extends Controller
                 'vektorS' => $vektorS[$key]
             ];
         }
+
+
+        // ambil data vektor S yang sudah disimpan dan data kost nya
+        $vektorSwithIdData = [];
+        foreach ($vektorSwithId as $key => $value) {
+            $vektorSwithIdData[$key] = [
+                'id' => $value['id'],
+                'vektorS' => $value['vektorS'],
+                'data' => Alternatif::with('kost')->where('id', $value['id'])->first()
+            ];
+        }
+
+        $nilaisdankost =  $vektorSwithIdData;
+
 
         // penghitungan vektor V
         $vektorV = [];
@@ -149,6 +194,10 @@ class SimulasiRekomendasiController extends Controller
         return view('admin.pages.simulasi-rekomendasi', [
             'alternatifterbaik' => $alternatifterbaikData,
             'palingrekomendasi' => $palingrekomendasi,
+            'kepentingan' => $kepentingan,
+            'nilaibobot' => $nilaibobot,
+            'nilaipangkat' => $nilaipangkat,
+            'nilaisdankost' => $nilaisdankost,
         ]);
     }
 }

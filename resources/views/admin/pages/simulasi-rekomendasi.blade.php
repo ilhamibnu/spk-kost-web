@@ -85,84 +85,242 @@
                                 <option value="5">Sangat Penting</option>
                             </select>
                         </div>
-
-
-
-
-
-                        {{-- <div class="form-group col-md-3">
-                            <label for="exampleFormControlSelect1">Jarak</label>
-                            <select name="id_jarak" class="form-control" id="exampleFormControlSelect1" required>
-                                <option selected disabled value="">Pilih Jarak</option>
-                                @foreach($jarak as $datajarak)
-                                <option value="{{ $datajarak->id }}">{{ $datajarak->name }}</option>
-                        @endforeach
-                        </select>
                     </div>
-
-                    <div class="form-group col-md-3">
-                        <label for="exampleFormControlSelect1">Fasilitas</label>
-                        <select name="id_fasilitas" class="form-control" id="exampleFormControlSelect1" required>
-                            <option selected disabled value="">Pilih Fasilitas</option>
-                            @foreach($fasilitas as $datafasilitas)
-                            <option value="{{ $datafasilitas->id }}">{{ $datafasilitas->name }}</option>
-                            @endforeach
-                        </select>
+                    <div class="align-items-center text-center row justify-content-center">
+                        <button type="submit" class="btn btn-primary">Cari</button>
                     </div>
-
-                    <div class="form-group col-md-3">
-                        <label for="exampleFormControlSelect1">Harga</label>
-                        <select name="id_harga" class="form-control" id="exampleFormControlSelect1" required>
-                            <option selected disabled value="">Pilih Harga</option>
-                            @foreach($harga as $dataharga)
-                            <option value="{{ $dataharga->id }}">{{ $dataharga->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-3">
-                        <label for="exampleFormControlSelect1">Lokasi</label>
-                        <select name="id_lokasi" class="form-control" id="exampleFormControlSelect1" required>
-                            <option selected disabled value="">Pilih Lokasi</option>
-                            @foreach($lokasi as $datalokasi)
-                            <option value="{{ $datalokasi->id }}">{{ $datalokasi->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-
-                    <div class="form-group col-md-3">
-                        <label for="exampleFormControlSelect1">Keamanan</label>
-                        <select name="id_keamanan" class="form-control" id="exampleFormControlSelect1" required>
-                            <option selected disabled value="">Pilih Keamanan</option>
-                            @foreach($keamanan as $datakeamanan)
-                            <option value="{{ $datakeamanan->id }}">{{ $datakeamanan->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-3">
-                        <label for="exampleFormControlSelect1">Akses Jalan</label>
-                        <select name="id_aksesjalan" class="form-control" id="exampleFormControlSelect1" required>
-                            <option selected disabled value="">Pilih Akses Jalan</option>
-                            @foreach($aksesjalan as $dataaksesjalan)
-                            <option value="{{ $dataaksesjalan->id }}">{{ $dataaksesjalan->name }}</option>
-                            @endforeach
-                        </select>
-                    </div> --}}
-
                 </div>
-                <div class="align-items-center text-center row justify-content-center">
-                    <button type="submit" class="btn btn-primary">Cari</button>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nilai Kepentingan</h4>
+                <div class="table-responsive">
+                    <table class="table datatables table-hover responsive nowrap" style="width:100%" id="dataTable-1">
+                        <thead>
+                            <tr>
+
+                                <th>Lokasi</th>
+                                <th>Harga</th>
+                                <th>Fasilitas</th>
+                                <th>Jarak</th>
+                                <th>Keamanan</th>
+                                <th>Akses Jalan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+
+                            @endphp
+
+                            @if($alternatifterbaik == null)
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            @else
+
+                            <tr>
+
+                                <td>{{ $kepentingan['lokasi'] }}</td>
+                                <td>{{ $kepentingan['harga'] }}</td>
+                                <td>{{ $kepentingan['fasilitas'] }}</td>
+                                <td>{{ $kepentingan['jarak'] }}</td>
+                                <td>{{ $kepentingan['keamanan'] }}</td>
+                                <td>{{ $kepentingan['aksesjalan'] }}</td>
+                            </tr>
+
+
+                            @endif
+
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-
+    </div>
 </div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nilai Bobot</h4>
+                <div class="table-responsive">
+                    <table class="table datatables table-hover responsive nowrap" style="width:100%" id="dataTable-1">
+                        <thead>
+                            <tr>
 
-</form>
+                                <th>Lokasi</th>
+                                <th>Harga</th>
+                                <th>Fasilitas</th>
+                                <th>Jarak</th>
+                                <th>Keamanan</th>
+                                <th>Akses Jalan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+
+                            @endphp
+
+                            @if($alternatifterbaik == null)
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            @else
+
+                            <tr>
+
+                                <td>{{ $nilaibobot['lokasi'] }}</td>
+                                <td>{{ $nilaibobot['harga'] }}</td>
+                                <td>{{ $nilaibobot['fasilitas'] }}</td>
+                                <td>{{ $nilaibobot['jarak'] }}</td>
+                                <td>{{ $nilaibobot['keamanan'] }}</td>
+                                <td>{{ $nilaibobot['aksesjalan'] }}</td>
+                            </tr>
+
+
+                            @endif
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nilai Pangkat</h4>
+                <div class="table-responsive">
+                    <table class="table datatables table-hover responsive nowrap" style="width:100%" id="dataTable-1">
+                        <thead>
+                            <tr>
 
+                                <th>Lokasi</th>
+                                <th>Harga</th>
+                                <th>Fasilitas</th>
+                                <th>Jarak</th>
+                                <th>Keamanan</th>
+                                <th>Akses Jalan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+
+                            @endphp
+
+                            @if($alternatifterbaik == null)
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            @else
+
+                            <tr>
+
+                                <td>{{ $nilaipangkat['lokasi'] }}</td>
+                                <td>{{ $nilaipangkat['harga'] }}</td>
+                                <td>{{ $nilaipangkat['fasilitas'] }}</td>
+                                <td>{{ $nilaipangkat['jarak'] }}</td>
+                                <td>{{ $nilaipangkat['keamanan'] }}</td>
+                                <td>{{ $nilaipangkat['aksesjalan'] }}</td>
+                            </tr>
+
+
+                            @endif
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nilai Vektor S</h4>
+                <div class="table-responsive">
+                    <table class="table datatables table-hover responsive nowrap" style="width:100%" id="dataTable-1">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Nilai Vektor S</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                            $no = 1;
+                            @endphp
+
+                            @if($alternatifterbaik == null)
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                            </tr>
+
+                            @else
+
+                            @foreach ($nilaisdankost as $datavektors)
+
+
+
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $datavektors['data']->kost->name }}</td>
+                                <td>{{ $datavektors['vektorS'] }}</td>
+                            </tr>
+
+                            @endforeach
+
+
+                            @endif
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
