@@ -92,6 +92,11 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Jenis Kost</label>
+                                                    <li>{{ $data->jenis_kost }}</li>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="recipient-name" class="control-label">Deskripsi</label>
                                                     <li>{{ $data->deskripsi }}</li>
                                                 </div>
@@ -203,6 +208,19 @@
                                                 <div class="form-group">
                                                     <label for="recipient-name" class="control-label">No Pemilik</label>
                                                     <input name="no_pemilik" value="{{ $data->no_pemilik }}" type="text" class="form-control" required>
+                                                </div>
+
+                                                <div class="form-group mb-4">
+                                                    <label for="exampleFormControlSelect1">Jenis Kost</label>
+                                                    <select name="jenis_kost" class="form-control" id="exampleFormControlSelect1" required>
+                                                        @if ($data->jenis_kost == 'Putra')
+                                                        <option selected value="Putra">Putra</option>
+                                                        <option value="Putri">Putri</option>
+                                                        @else
+                                                        <option value="Putra">Putra</option>
+                                                        <option selected value="Putri">Putri</option>
+                                                        @endif
+                                                    </select>
                                                 </div>
 
 
@@ -337,6 +355,15 @@
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">No Pemilik</label>
                                         <input name="no_pemilik" value="" type="text" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">Jenis Kost</label>
+                                        <select name="jenis_kost" class="form-control" id="exampleFormControlSelect1" required>
+                                            <option selected disabled value="">Pilih Jenis Kost</option>
+                                            <option value="Putra">Putra</option>
+                                            <option value="Putri">Putri</option>
+                                        </select>
                                     </div>
 
 

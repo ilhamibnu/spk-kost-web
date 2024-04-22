@@ -53,6 +53,7 @@ class KostController extends Controller
             'deskripsi' => 'required',
             'no_pemilik' => 'required',
             'foto' => 'required',
+            'jenis_kost' => 'required',
             'id_aksesjalan' => 'required',
             'id_fasilitas' => 'required',
             'id_harga' => 'required',
@@ -67,6 +68,7 @@ class KostController extends Controller
             'deskripsi.required' => 'Deskripsi harus diisi',
             'no_pemilik.required' => 'No pemilik harus diisi',
             'foto.required' => 'Foto harus diisi',
+            'jenis_kost.required' => 'Jenis kost harus diisi',
             'id_aksesjalan.required' => 'Akses jalan harus diisi',
             'id_fasilitas.required' => 'Fasilitas harus diisi',
             'id_harga.required' => 'Harga harus diisi',
@@ -82,6 +84,7 @@ class KostController extends Controller
         $kost->maps = $request->maps;
         $kost->deskripsi = $request->deskripsi;
         $kost->no_pemilik = $request->no_pemilik;
+        $kost->jenis_kost = $request->jenis_kost;
 
         $file = $request->file('foto');
         $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -118,6 +121,7 @@ class KostController extends Controller
             'alamat' => 'required',
             'maps' => 'required',
             'deskripsi' => 'required',
+            'jenis_kost' => 'required',
             'no_pemilik' => 'required',
             'id_aksesjalan' => 'required',
             'id_fasilitas' => 'required',
@@ -131,6 +135,7 @@ class KostController extends Controller
             'alamat.required' => 'Alamat harus diisi',
             'maps.required' => 'Maps harus diisi',
             'deskripsi.required' => 'Deskripsi harus diisi',
+            'jenis_kost.required' => 'Jenis kost harus diisi',
             'no_pemilik.required' => 'No pemilik harus diisi',
             'id_aksesjalan.required' => 'Akses jalan harus diisi',
             'id_fasilitas.required' => 'Fasilitas harus diisi',
@@ -147,6 +152,7 @@ class KostController extends Controller
         $kost->maps = $request->maps;
         $kost->deskripsi = $request->deskripsi;
         $kost->no_pemilik = $request->no_pemilik;
+        $kost->jenis_kost = $request->jenis_kost;
 
         if ($request->hasFile('foto')) {
             // hapus foto lama

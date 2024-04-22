@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('deskripsi');
             $table->string('no_pemilik');
             $table->string('foto');
+            $table->string('jenis_kost');
             $table->timestamps();
         });
     }

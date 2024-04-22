@@ -19,6 +19,7 @@ class Kost extends Model
         'deskripsi',
         'no_pemilik',
         'foto',
+        'jenis_kost',
         'id_aksesjalan',
         'id_fasilitas',
         'id_jarak',

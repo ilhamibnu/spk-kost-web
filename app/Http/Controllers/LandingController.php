@@ -22,6 +22,8 @@ class LandingController extends Controller
         session::flash('kepentingan_jarak', $request->kepentingan_jarak);
         session::flash('kepentingan_keamanan', $request->kepentingan_keamanan);
         session::flash('kepentingan_aksesjalan', $request->kepentingan_aksesjalan);
+        session::flash('jenis_kost', $request->jenis_kost);
+
 
         // jika nilai kepentingan ada yang bernilai 0 maka tidak usah dihitung
         if ($request->kepentingan_lokasi == 0 || $request->kepentingan_harga == 0 || $request->kepentingan_fasilitas == 0 || $request->kepentingan_jarak == 0 || $request->kepentingan_keamanan == 0 || $request->kepentingan_aksesjalan == 0) {
@@ -93,6 +95,7 @@ class LandingController extends Controller
             $kepentinganjarak = $request->kepentingan_jarak;
             $kepentingankeamanan = $request->kepentingan_keamanan;
             $kepentinganaksesjalan = $request->kepentingan_aksesjalan;
+            $jenis_kost = $request->jenis_kost;
 
             $jumlahkepentingan = $kepentinganlokasi + $kepentinganharga + $kepentinganfasilitas + $kepentinganjarak + $kepentingankeamanan + $kepentinganaksesjalan;
 
@@ -141,7 +144,18 @@ class LandingController extends Controller
 
             // penghitungan vektor S
 
-            $alternatif = Alternatif::with('kost')->get();
+            // $alternatif = Alternatif::with('kost')->get();
+
+            if ($jenis_kost == '0') {
+                $alternatif = Alternatif::with('kost')->get();
+            } else {
+                // join alternatif dengan tabel kost berdasarkan jenis kost
+                $alternatif = Alternatif::with('kost')->whereHas('kost', function ($query) use ($jenis_kost) {
+                    $query->where('jenis_kost', $jenis_kost);
+                })->get();
+            }
+
+
             $vektorS = [];
             foreach ($alternatif as $key => $value) {
                 $vektorS[$key] = pow($value->lokasi->bobot, $nilaipangkatlokasi) * pow($value->harga->bobot, $nilaipangkatharga) * pow($value->fasilitas->bobot, $nilaipangkatfasilitas) * pow($value->jarak->bobot, $nilaipangkatjarak) * pow($value->keamanan->bobot, $nilaipangkatkeamanan) * pow($value->aksesjalan->bobot, $nilaipangkataksesjalan);
@@ -213,6 +227,7 @@ class LandingController extends Controller
                     'kepentinganjarak' => $kepentinganjarak,
                     'kepentingankeamanan' => $kepentingankeamanan,
                     'kepentinganaksesjalan' => $kepentinganaksesjalan,
+                    'jenis_kost' => $jenis_kost,
                 ])->render();
                 return response()->json(['html' => $view]);
             }
@@ -227,6 +242,7 @@ class LandingController extends Controller
                 'kepentingan_jarak' => $kepentinganjarak,
                 'kepentingan_keamanan' => $kepentingankeamanan,
                 'kepentingan_aksesjalan' => $kepentinganaksesjalan,
+                'jenis_kost' => $jenis_kost,
             ]);
         }
     }

@@ -354,9 +354,39 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="filter-col1 p-r-15 p-b-27">
-                            <div class="justify-content-center text-center">
-                                <button class="stext-103 cl2 size-102 bg0 bor4 hov-btn1 p-lr-15 trans-04">Filter</button>
+                            <div class="mtext-102 cl2 p-b-15">
+                                Jenis Kost
+                            </div>
+                            <div class="form-group">
+                                <select name="jenis_kost" class="form-control" id="exampleFormControlSelect1">
+
+                                    @if(Session::get('jenis_kost') !=null)
+                                    @if(Session::get('jenis_kost') == 'Putra')
+                                    <option selected value="Putra">Kost Putra</option>
+                                    <option value="Putri">Kost Putri</option>
+                                    @elseif(Session::get('jenis_kost') == 'Putri')
+                                    <option value="Putra">Kost Putra</option>
+                                    <option selected value="Putri">Kost Putri</option>
+                                    @endif
+                                    @else
+                                    <option selected value="0">Pilih Jenis Kost</option>
+                                    <option value="Putra">Kost Putra</option>
+                                    <option value="Putri">Kost Putri</option>
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="filter-col1 p-r-15 p-b-27">
+                                <div class="mtext-102 cl2 p-b-15">
+                                    Filter
+                                </div>
+                                <div class="justify-content-center text-center">
+                                    <button class="stext-103 cl2 size-102 bg0 bor4 hov-btn1 p-lr-15 trans-04">Filter</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -374,6 +404,8 @@
                 <strong>Nama Kost : {{ $alternatifterbaik[0]['data']->kost->name }}</strong>
                 <br>
                 <strong>Alamat : {{ $alternatifterbaik[0]['data']->kost->alamat }}</strong>
+                <br>
+                <strong>Jenis Kost : {{ $alternatifterbaik[0]['data']->kost->jenis_kost }}</strong>
                 <br>
                 <strong>Deskripsi : {{ $alternatifterbaik[0]['data']->kost->deskripsi }}</strong>
                 <br>
@@ -429,7 +461,8 @@
         '&kepentingan_harga=' + encodeURIComponent("{{ $kepentingan_harga }}") +
         '&kepentingan_lokasi=' + encodeURIComponent("{{ $kepentingan_lokasi }}") +
         '&kepentingan_keamanan=' + encodeURIComponent("{{ $kepentingan_keamanan }}") +
-        '&kepentingan_aksesjalan=' + encodeURIComponent("{{ $kepentingan_aksesjalan }}");
+        '&kepentingan_aksesjalan=' + encodeURIComponent("{{ $kepentingan_aksesjalan }}") +
+        '&jenis_kost=' + encodeURIComponent("{{ $jenis_kost }}")
 
     @else
     var ENDPOINT = '/?cari=' + encodeURIComponent("{{ $cari }}")

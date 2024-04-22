@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Kriteria;
 use App\Models\Alternatif;
+use App\Models\Kost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SimulasiRekomendasiController extends Controller
 {
@@ -42,6 +44,7 @@ class SimulasiRekomendasiController extends Controller
         $kepentinganjarak = $request->kepentingan_jarak;
         $kepentingankeamanan = $request->kepentingan_keamanan;
         $kepentinganaksesjalan = $request->kepentingan_aksesjalan;
+        $jenis_kost = $request->jenis_kost;
 
         // ambil semua kepentingan dan masukkan ke array
         $kepentingan = [
@@ -123,7 +126,15 @@ class SimulasiRekomendasiController extends Controller
 
         // penghitungan vektor S
 
-        $alternatif = Alternatif::with('kost')->get();
+        if ($jenis_kost == '0') {
+            $alternatif = Alternatif::with('kost')->get();
+        } else {
+            // join alternatif dengan tabel kost berdasarkan jenis kost
+            $alternatif = Alternatif::with('kost')->whereHas('kost', function ($query) use ($jenis_kost) {
+                $query->where('jenis_kost', $jenis_kost);
+            })->get();
+        }
+
         $vektorS = [];
         foreach ($alternatif as $key => $value) {
             $vektorS[$key] = pow($value->lokasi->bobot, $nilaipangkatlokasi) * pow($value->harga->bobot, $nilaipangkatharga) * pow($value->fasilitas->bobot, $nilaipangkatfasilitas) * pow($value->jarak->bobot, $nilaipangkatjarak) * pow($value->keamanan->bobot, $nilaipangkatkeamanan) * pow($value->aksesjalan->bobot, $nilaipangkataksesjalan);
@@ -137,7 +148,6 @@ class SimulasiRekomendasiController extends Controller
                 'vektorS' => $vektorS[$key]
             ];
         }
-
 
         // ambil data vektor S yang sudah disimpan dan data kost nya
         $vektorSwithIdData = [];
@@ -179,7 +189,6 @@ class SimulasiRekomendasiController extends Controller
             ];
         }
 
-        // tambahkan data kost dan vektor V nya
         $alternatifterbaikData = [];
         foreach ($alternatifterbaik as $key => $value) {
             $alternatifterbaikData[$key] = [
@@ -191,7 +200,6 @@ class SimulasiRekomendasiController extends Controller
 
         // ambil satu data kost dengan vektor V terbesar
         $palingrekomendasi = $alternatifterbaikData[0];
-
 
         return view('admin.pages.simulasi-rekomendasi', [
             'alternatifterbaik' => $alternatifterbaikData,

@@ -85,6 +85,17 @@
                                 <option value="5">Sangat Penting</option>
                             </select>
                         </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="exampleFormControlSelect1">Jenis Kost</label>
+                            <select name="jenis_kost" class="form-control" id="exampleFormControlSelect1" required>
+                                <option selected value="0">Pilih Jenis Kost</option>
+                                <option value="Putra">Putra</option>
+                                <option value="Putri">Putri</option>
+                            </select>
+                        </div>
+
+
                     </div>
                     <div class="align-items-center text-center row justify-content-center">
                         <button type="submit" class="btn btn-primary">Cari</button>
@@ -411,6 +422,8 @@
                     <strong>Nama Kost : {{ $alternatifterbaik[0]['data']->kost->name }}</strong>
                     <br>
                     <strong>Alamat : {{ $alternatifterbaik[0]['data']->kost->alamat }}</strong>
+                    <br>
+                    <strong>Jenis Kost : {{ $alternatifterbaik[0]['data']->kost->jenis_kost }}</strong>
                     <br>
                     <strong>Deskripsi : {{ $alternatifterbaik[0]['data']->kost->deskripsi }}</strong>
                     <br>

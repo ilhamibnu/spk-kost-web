@@ -165,6 +165,17 @@
 
                                             <li class="flex-w flex-t p-b-7">
                                                 <span class="stext-102 cl3 size-205">
+                                                    Jenis Kost
+                                                </span>
+
+                                                <span class="stext-102 cl6 size-206">
+                                                    {{ $kost->jenis_kost }}
+                                                </span>
+                                            </li>
+
+
+                                            <li class="flex-w flex-t p-b-7">
+                                                <span class="stext-102 cl3 size-205">
                                                     Alamat
                                                 </span>
 
