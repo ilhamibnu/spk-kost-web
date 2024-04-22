@@ -195,7 +195,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Budi',
+            'name' => 'Kost Pak Sugeng',
             'price' => 750000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -222,7 +222,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Joko',
+            'name' => 'Kost Pak Akbar',
             'price' => 450000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -249,7 +249,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Udin',
+            'name' => 'Kost Pak Arya',
             'price' => 300000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -276,7 +276,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Joko',
+            'name' => 'Kost Pak Rijal',
             'price' => 450000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -303,7 +303,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Udin',
+            'name' => 'Kost Pak Daffa',
             'price' => 300000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -330,7 +330,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Joko',
+            'name' => 'Kost Pak Riski',
             'price' => 450000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -357,7 +357,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Udin',
+            'name' => 'Kost Pak Rio',
             'price' => 300000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -384,7 +384,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Joko',
+            'name' => 'Kost Pak Gigas',
             'price' => 450000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -411,7 +411,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'name' => 'Kost Pak Udin',
+            'name' => 'Kost Pak Lana',
             'price' => 300000,
             'alamat' => 'Jl. Raya Kedungwuni',
             'maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4456889242047!2d113.72270227589124!3d-8.157770731729773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6ea0e8375%3A0x4618d7137a4cf5c1!2sGedung%20Jurusan%20TI%20Politeknik%20Negeri%20Jember!5e0!3m2!1sen!2sid!4v1705718643681!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
