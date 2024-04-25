@@ -40,7 +40,7 @@ Route::post('/simpanwhitelist', [LandingController::class, 'simpanwhitelist'])->
 Route::post('/deletewhitelist', [LandingController::class, 'deletewhitelist'])->middleware('IsLogin', 'IsUser');
 
 
-
+Route::get('/about', [LandingController::class, 'about']);
 
 # Auth Controller
 Route::get('/loginuser', [AuthController::class, 'loginuser']);

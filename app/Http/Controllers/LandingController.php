@@ -353,4 +353,9 @@ class LandingController extends Controller
 
         return response()->json(['success' => 'Kost berhasil dihapus dari daftar simpan']);
     }
+
+    public function about()
+    {
+        return view('landing.pages.about');
+    }
 }

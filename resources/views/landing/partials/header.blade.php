@@ -42,6 +42,9 @@
                               @else
 
                               <li>
+                                  <a href="/about/#about">About</a>
+                              </li>
+                              <li>
                                   <a href="/loginuser/#login">Login</a>
                               </li>
 
