@@ -32,6 +32,15 @@
                               @if(Auth::check())
 
                               <li>
+                                  <a href="/">Home</a>
+                              </li>
+
+                              <li>
+                                  <a href="/about/#about">About</a>
+                              </li>
+
+
+                              <li>
                                   <a href="#">{{ Auth::user()->name }}</a>
                                   <ul class="sub-menu">
                                       <li><a href="/myprofil/#myprofil">My Profil</a></li>
@@ -40,6 +49,9 @@
                                   </ul>
                               </li>
                               @else
+                              <li>
+                                  <a href="/">Home</a>
+                              </li>
 
                               <li>
                                   <a href="/about/#about">About</a>
@@ -96,19 +108,16 @@
       <!-- Menu Mobile -->
       <div class="menu-mobile">
           <ul class="main-menu-m">
-              {{-- <li>
-                  <a href="product.html">Home</a>
-              </li>
-
-              <li>
-                  <a href="blog.html">Blog</a>
-              </li>
-
-              <li>
-                  <a href="contact.html">Contact</a>
-              </li> --}}
 
               @if (Auth::check())
+
+              <li>
+                  <a href="/">Home</a>
+              </li>
+
+              <li>
+                  <a href="/about/#about">About</a>
+              </li>
 
               <li>
                   <a href="#">{{ Auth::user()->name }}</a>
