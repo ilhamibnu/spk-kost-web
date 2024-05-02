@@ -155,6 +155,21 @@ class LandingController extends Controller
                 })->get();
             }
 
+            if ($alternatif->count() == 0) {
+                return view('landing.pages.landing', [
+                    'cari' => 'filter',
+                    'kepentingan_lokasi' => $kepentinganlokasi,
+                    'kepentingan_harga' => $kepentinganharga,
+                    'kepentingan_fasilitas' => $kepentinganfasilitas,
+                    'kepentingan_jarak' => $kepentinganjarak,
+                    'kepentingan_keamanan' => $kepentingankeamanan,
+                    'kepentingan_aksesjalan' => $kepentinganaksesjalan,
+                    'jenis_kost' => $jenis_kost,
+                    'alternatifterbaik' => '',
+                    'kost' => $alternatif,
+                ]);
+            }
+
 
             $vektorS = [];
             foreach ($alternatif as $key => $value) {

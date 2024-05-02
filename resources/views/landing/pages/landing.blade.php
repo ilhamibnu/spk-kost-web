@@ -60,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <select name="kepentingan_jarak" class="form-control" id="exampleFormControlSelect1">
-                                    @if(Session::get('kepentingan_jarak') !=null)
+                                    @if(Session::get('kepentingan_jarak') !=null && Session::get('kepentingan_jarak') != 0)
                                     @if(Session::get('kepentingan_jarak') == 1)
                                     <option selected value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
@@ -111,7 +111,7 @@
                             <div class="form-group">
                                 <select name="kepentingan_fasilitas" class="form-control" id="exampleFormControlSelect1">
 
-                                    @if(Session::get('kepentingan_fasilitas') !=null)
+                                    @if(Session::get('kepentingan_fasilitas') !=null && Session::get('kepentingan_fasilitas') != 0)
                                     @if(Session::get('kepentingan_fasilitas') == 1)
                                     <option selected value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
@@ -161,7 +161,7 @@
                             <div class="form-group">
                                 <select name="kepentingan_harga" class="form-control" id="exampleFormControlSelect1">
 
-                                    @if(Session::get('kepentingan_harga') !=null)
+                                    @if(Session::get('kepentingan_harga') !=null && Session::get('kepentingan_harga') != 0)
                                     @if(Session::get('kepentingan_harga') == 1)
                                     <option selected value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
@@ -211,7 +211,7 @@
                             <div class="form-group">
                                 <select name="kepentingan_lokasi" class="form-control" id="exampleFormControlSelect1">
 
-                                    @if(Session::get('kepentingan_lokasi') !=null)
+                                    @if(Session::get('kepentingan_lokasi') !=null && Session::get('kepentingan_lokasi') != 0)
                                     @if(Session::get('kepentingan_lokasi') == 1)
                                     <option selected value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
@@ -261,7 +261,7 @@
                             <div class="form-group">
                                 <select name="kepentingan_keamanan" class="form-control" id="exampleFormControlSelect1">
 
-                                    @if(Session::get('kepentingan_keamanan') !=null)
+                                    @if(Session::get('kepentingan_keamanan') !=null && Session::get('kepentingan_keamanan') != 0)
                                     @if(Session::get('kepentingan_keamanan') == 1)
                                     <option selected value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
@@ -311,7 +311,7 @@
                             <div class="form-group">
                                 <select name="kepentingan_aksesjalan" class="form-control" id="exampleFormControlSelect1">
 
-                                    @if(Session::get('kepentingan_aksesjalan') !=null)
+                                    @if(Session::get('kepentingan_aksesjalan') !=null && Session::get('kepentingan_aksesjalan') != 0)
                                     @if(Session::get('kepentingan_aksesjalan') == 1)
                                     <option selected value="1">Tidak Penting</option>
                                     <option value="2">Kurang Penting</option>
@@ -362,7 +362,7 @@
                             <div class="form-group">
                                 <select name="jenis_kost" class="form-control" id="exampleFormControlSelect1">
 
-                                    @if(Session::get('jenis_kost') !=null)
+                                    @if(Session::get('jenis_kost') !=null && Session::get('jenis_kost') != 0)
                                     @if(Session::get('jenis_kost') == 'Putra')
                                     <option selected value="Putra">Kost Putra</option>
                                     <option value="Putri">Kost Putri</option>
