@@ -53,13 +53,13 @@
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{-- <img src="{{ asset('foto-user/'. Auth::user()->foto) }}" alt="user" class="rounded-circle" width="40"> --}}
+                        <img src="{{ asset('fotouser/'. Auth::user()->image) }}" alt="user" class="rounded-circle" width="40">
                         <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark">{{ Auth::user()->name }}</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                         <div class="dropdown-divider"></div>
-                        {{-- <a class="dropdown-item" href="" data-toggle="modal" data-target="#profil"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
-                            My Profile</a> --}}
+                        <a class="dropdown-item" href="" data-toggle="modal" data-target="#profil"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
+                            My Profile</a>
 
                         <a class="dropdown-item" href="/logout"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>
                             Logout</a>

@@ -35,6 +35,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Image</th>
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Action</th>
@@ -47,6 +48,9 @@
                             @foreach($user as $data)
                             <tr>
                                 <td>{{ $no++ }}</td>
+                                <td>
+                                    <img src="{{ asset('fotouser/'. $data->image) }}" alt="user" class="rounded-circle" width="40">
+                                </td>
                                 <td>{{ $data->email }}</td>
                                 <td>{{ $data->name }}</td>
                                 <td>
@@ -103,6 +107,19 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">Foto</label>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Upload</span>
+                                                        </div>
+                                                        <div class="custom-file">
+                                                            <input name="image" type="file" class="custom-file-input" id="inputGroupFile01">
+                                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="recipient-name" class="control-label">Email</label>
                                                     <input name="email" value="{{ $data->email }}" type="text" class="form-control" required>
                                                 </div>
@@ -147,6 +164,19 @@
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Name</label>
                                         <input name="name" value="" type="text" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">Foto</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input name="image" type="file" class="custom-file-input" id="inputGroupFile01">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">

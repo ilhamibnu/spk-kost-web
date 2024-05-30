@@ -23,6 +23,7 @@ class UserController extends Controller
             'email' => 'required|unique:tb_user,email',
             'password' => 'required',
             'repassword' => 'required|same:password',
+            'image' => 'image|mimes:jpg,jpeg,png'
 
         ], [
             'name.required' => 'Name tidak boleh kosong!',
@@ -31,11 +32,20 @@ class UserController extends Controller
             'password.required' => 'Password tidak boleh kosong!',
             'repassword.required' => 'Re-Password tidak boleh kosong!',
             'repassword.same' => 'Re-Password tidak sama dengan Password!',
+            'image.image' => 'File harus berupa gambar!',
+            'image.mimes' => 'File harus berupa gambar dengan format jpg, jpeg, png!'
+
         ]);
+
+        $file = $request->file('image');
+        $nama_file = time() . "_" . $file->getClientOriginalName();
+        // pindahkan file ke folder public
+        $file->move('fotouser', $nama_file);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'image' => $nama_file,
             'password' => bcrypt($request->password),
             'id_role' => 2
 
@@ -57,8 +67,28 @@ class UserController extends Controller
             'repassword.same' => 'Re-Password tidak sama dengan Password!',
         ]);
 
+        if ($request->image != null) {
+            $request->validate([
+                'image' => 'image|mimes:jpg,jpeg,png'
+            ], [
+                'image.image' => 'File harus berupa gambar!',
+                'image.mimes' => 'File harus berupa gambar dengan format jpg, jpeg, png!'
+            ]);
+
+            // hapus file lama
+            $user = User::find($id);
+            if ($user->image != null) {
+                unlink('fotouser/' . $user->image);
+            }
+
+            $file = $request->file('image');
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+            // pindahkan file ke folder public
+            $file->move('fotouser', $nama_file);
+        }
+
         $user = User::find($id);
-        if ($request->password == null) {
+        if ($request->password == null && $request->image == null) {
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -68,6 +98,7 @@ class UserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
+                'image' => $request->image == null ? $user->image : $nama_file
             ]);
         }
         return redirect('/user')->with('update', 'Data User Berhasil Diubah!');
@@ -87,6 +118,12 @@ class UserController extends Controller
             $user = User::find($id);
             $user->delete();
         } else {
+
+            // hapus foto
+            $user = User::find($id);
+            if ($user->image != null) {
+                unlink('fotouser/' . $user->image);
+            }
             // delete user
             $user = User::find($id);
             $user->delete();

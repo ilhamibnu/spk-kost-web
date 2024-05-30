@@ -28,6 +28,7 @@ class User extends Authenticatable
         'code',
         'status_code',
         'type',
+        'image',
         'id_role',
     ];
 

@@ -63,6 +63,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('IsLogin');
 
 # Dashboard Controller
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('IsLogin', 'IsAdmin');
+Route::post('/updateprofiladmin', [AuthController::class, 'updateprofiladmin']);
 
 # Kost Controller
 Route::get('/kost', [KostController::class, 'index'])->middleware('IsLogin', 'IsAdmin');

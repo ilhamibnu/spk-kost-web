@@ -75,7 +75,7 @@
                                                 <span class="input-group-text">Upload</span>
                                             </div>
                                             <div class="custom-file">
-                                                <input name="foto" type="file" class="custom-file-input" id="inputGroupFile01">
+                                                <input name="image" type="file" class="custom-file-input" id="inputGroupFile01">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
                                         </div>

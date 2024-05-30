@@ -24,15 +24,23 @@
                     @endforeach
                 </div>
                 @endif
-                <form action="/updateprofil" method="POST">
+                <form action="/updateprofil" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         My Profil
                     </h4>
+                    <div class="text-center mb-2 mt-2">
+                        <img src="{{ asset('fotouser/'.Auth::user()->image) }}" alt="IMG" style="width: 100px; height: 100px; border-radius: 50%;">
+                    </div>
 
                     @if(Auth::user()->type == 'google')
 
                     <input hidden value="{{ Auth::user()->id }}" type="text">
+
+                    {{-- // image upload --}}
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="file" name="image" placeholder="Your Image">
+                    </div>
 
                     <div class="bor8 m-b-20 how-pos4-parent">
                         <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="text" name="name" value="{{ Auth::user()->name }}" placeholder="Your Full Name">
@@ -46,12 +54,17 @@
                         <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="password" name="password" placeholder="Your Password">
                     </div>
 
-                    <div hidden  class="bor8 m-b-20 how-pos4-parent">
+                    <div hidden class="bor8 m-b-20 how-pos4-parent">
                         <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="password" name="repassword" placeholder="Your Password">
                     </div>
                     @else
 
                     <input hidden value="{{ Auth::user()->id }}" type="text">
+
+                    {{-- // image upload --}}
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="file" name="image" placeholder="Your Image">
+                    </div>
 
                     <div class="bor8 m-b-20 how-pos4-parent">
                         <input class="stext-111 cl2 plh3 size-116 p-lr-28 p-tb-25" type="text" name="name" value="{{ Auth::user()->name }}" placeholder="Your Full Name">

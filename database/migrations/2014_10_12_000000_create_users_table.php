@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('code')->nullable();
             $table->string('status_code')->nullable();
             $table->string('type')->nullable();
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

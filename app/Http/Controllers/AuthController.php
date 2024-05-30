@@ -166,6 +166,26 @@ class AuthController extends Controller
             'repassword.same' => 'Re-Password tidak sama dengan password',
         ]);
 
+        if ($request->image != null) {
+            $request->validate([
+                'image' => 'image|mimes:jpg,jpeg,png'
+            ], [
+                'image.image' => 'File harus berupa gambar!',
+                'image.mimes' => 'File harus berupa gambar dengan format jpg, jpeg, png!'
+            ]);
+
+            // hapus foto lama
+            $user = User::find(Auth::user()->id);
+            if ($user->image != null) {
+                unlink('fotouser/' . $user->image);
+            }
+
+            $file = $request->file('image');
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+            // pindahkan file ke folder public
+            $file->move('fotouser', $nama_file);
+        }
+
         $user = User::find(Auth::user()->id);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -179,6 +199,9 @@ class AuthController extends Controller
         }
         if ($request->password != null) {
             $user->password = bcrypt($request->password);
+        }
+        if ($request->image != null) {
+            $user->image = $nama_file;
         }
         $user->save();
 
@@ -273,5 +296,51 @@ class AuthController extends Controller
             $request->session()->regenerateToken();
             return redirect('/')->with('logout', 'Anda berhasil logout');
         }
+    }
+
+    public function updateprofiladmin(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:tb_user,email,' . Auth::user()->id,
+            'repassword' => 'same:password',
+        ], [
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.unique' => 'Email sudah terdaftar',
+            'repassword.same' => 'Re-Password tidak sama dengan password',
+        ]);
+
+        if ($request->image != null) {
+            $request->validate([
+                'image' => 'image|mimes:jpg,jpeg,png'
+            ], [
+                'image.image' => 'File harus berupa gambar!',
+                'image.mimes' => 'File harus berupa gambar dengan format jpg, jpeg, png!'
+            ]);
+
+            // hapus foto lama
+            $user = User::find(Auth::user()->id);
+            if ($user->image != null) {
+                unlink('fotouser/' . $user->image);
+            }
+
+            $file = $request->file('image');
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+            // pindahkan file ke folder public
+            $file->move('fotouser', $nama_file);
+        }
+
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->passwords != null) {
+            $user->password = bcrypt($request->password);
+        }
+        if ($request->image != null) {
+            $user->image = $nama_file;
+        }
+        $user->save();
+        return redirect('/dashboard')->with('update', 'Anda berhasil update profil');
     }
 }
